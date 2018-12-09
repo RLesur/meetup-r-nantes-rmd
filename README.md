@@ -8,8 +8,11 @@ Avec R Markdown, vous pouvez combiner naturellement votre contenu avec des porti
 
 Que vous soyez étudiant, professionnel de la data, enseignant, chercheur... R Markdown vous simplifiera la vie.
 
-Et le plus fort, c'est que R Markdown est à la fois compatible avec de très nombreux langages (python, node.js, ruby, coffeescript, SAS, julia, perl, C, go, SQL...) et totalement customisable.
+Et le plus fort, c'est que R Markdown est compatible avec de très nombreux langages (python, node.js, ruby, coffeescript, SAS, julia, perl, C, go, SQL...) et totalement customisable.
 
 Les utilisateurs déjà familiers pourront également découvrir la toute dernière innovation de R Markdown.
 
+---
+
+Romain Lesur est administrateur de l'Insee et travaille depuis près de 10 ans avec R. Il contribue également au développement de packages R et a été récemment primé par la fondation Shuttleworth pour sa contribution aux évolutions de R Markdown.
 
