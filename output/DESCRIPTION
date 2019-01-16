@@ -1,0 +1,5 @@
+Package: meetup
+Type: Book
+Title: Meetup R Nantes du 21 janvier 2019.
+Version: 0.0.1
+Imports: rmarkdown
