@@ -15,3 +15,4 @@ En exclusivité pour le meetup R Nantes, vous pourrez également découvrir la t
 ---
 
 Romain Lesur est administrateur de l'Insee et travaille depuis près de 10 ans avec R. Il contribue également au développement de packages R et a été récemment primé par la fondation Shuttleworth pour son apport aux dernières évolutions de R Markdown.
+
