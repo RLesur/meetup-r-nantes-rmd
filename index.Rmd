@@ -9,7 +9,7 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{css, echo=FALSE}
+```{css echo=FALSE}
 .title-slide {
   background-image: url(sharon-mccutcheon-576867-unsplash.jpg);
   background-size: cover;
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# R Markdown {data-background=sharon-mccutcheon-576867-unsplash.jpg data-background-size=cover}
+# R Markdown {data-background="assets/sharon-mccutcheon-576867-unsplash.jpg" data-background-size=cover}
 
 ## R Markdown
 
