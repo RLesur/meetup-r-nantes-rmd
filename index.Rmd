@@ -1,13 +1,25 @@
 ---
 title: "Untitled"
 author: "Romain Lesur"
-date: "16 janvier 2019"
+date: "21 janvier 2019"
 output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{css, echo=FALSE}
+.title-slide {
+  background-image: url(sharon-mccutcheon-576867-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: lighten;
+}
+```
+
+
+# R Markdown {data-background=sharon-mccutcheon-576867-unsplash.jpg data-background-size=cover}
 
 ## R Markdown
 

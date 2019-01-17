@@ -1,3 +1,4 @@
+
 branches:
   only:
   - master
@@ -6,6 +7,12 @@ sudo: false
 cache: 
   packages: yes
 pandoc_version: 2.2.1
+
+addons:
+  apt:
+    packages:
+      - python2.7
+      - python-numpy
 
 script:
   - git config --global user.email "romain.lesur@gmail.com"
