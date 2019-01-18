@@ -1,8 +1,13 @@
 ---
-title: "Untitled"
+title: |
+  Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
 author: "Romain Lesur"
 date: "21 janvier 2019"
-output: ioslides_presentation
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: "assets/meetuprnantes.jpeg"
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{css echo=FALSE}
 .title-slide {
-  background-image: url(sharon-mccutcheon-576867-unsplash.jpg);
+  background-image: url('assets/sharon-mccutcheon-576867-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-blend-mode: lighten;
@@ -33,15 +38,21 @@ When you click the **Knit** button a document will be generated that includes bo
 - Bullet 2
 - Bullet 3
 
-## Slide with R Output
+## Différents languages autorisés
 
-```{r cars, echo = TRUE}
-summary(cars)
+
+## Hacker R Markdown
+
+### Hacker le bouton `knit` de RStudio
+
+Rajouter dans l'en-tête YAML du fichier `Rmd` une ligne qui renvoie une fonction $\lambda$ ayant pour arguments `(inputFile, encoding)`
+
+```yaml
+knit: (function(inputFile, encoding){...})
 ```
 
-## Slide with Plot
+Si en plus la fonction comprend `message("Output created: ", outputFile)`, le viewer de RStudio l'ouvrira.
 
-```{r pressure}
-plot(pressure)
-```
+Voir <https://github.com/rstudio/rmarkdown/issues/277>
 
+- Hacker `knitr`
