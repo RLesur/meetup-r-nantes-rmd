@@ -156,6 +156,27 @@
 ## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
 ## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
 
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code></h2></hgroup><article  id="exemple-python">
+
+<pre class = 'prettyprint lang-python'>a = 1 + 2
+print(a)</pre>
+
+<pre >## 3</pre>
+
+<pre class = 'prettyprint lang-python'>import pandas as pd
+import numpy as np
+dates = pd.date_range(&#39;20130101&#39;, periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list(&#39;ABCD&#39;))
+print(df)</pre>
+
+<pre >##                    A         B         C         D
+## 2013-01-01 -0.876553 -1.025622 -0.756940  0.030305
+## 2013-01-02  0.760123  1.615904  0.846159 -1.291543
+## 2013-01-03 -1.453002  1.091737  0.595326  0.557434
+## 2013-01-04  1.814210 -1.944472 -0.204713 -1.398490
+## 2013-01-05 -0.311481 -2.282548 -0.702642  0.173763
+## 2013-01-06  0.536661 -0.294892 -0.346763  0.822669</pre>
+
 </article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code></h2></hgroup><article  id="exemple-node.js">
 
 <pre class = 'prettyprint lang-javascript'>const hi = (name) =&gt; {
