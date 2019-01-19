@@ -8,13 +8,14 @@ output:
     widescreen: true
     self_contained: false
     logo: "assets/meetuprnantes.jpeg"
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{css echo=FALSE}
+```{css firstpagebg, echo=FALSE}
 .title-slide {
   background-image: url('assets/sharon-mccutcheon-576867-unsplash.jpg');
   background-size: cover;
@@ -23,8 +24,30 @@ knitr::opts_chunk$set(echo = TRUE)
 }
 ```
 
+## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
-# R Markdown {data-background="assets/sharon-mccutcheon-576867-unsplash.jpg" data-background-size=cover}
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rfny8.jpg data-background-position="50% 75%" data-background-size=70%}
+
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rj0z1.jpg data-background-position="50% 75%" data-background-size=90%}
+
+## _Keep it simple_
+
+<div class="columns-2">
+<embed src="simple.pdf" type="application/pdf" width="100%" height="500px" />
+
+
+
+
+<div width="100%" height="500px">
+<pre style="overflow:scroll;">
+```{r simplermd, echo=FALSE, results='asis'}
+cat(paste(readLines("simple.Rmd"), collapse = "\n"))
+```
+</pre>
+</div>
+
+ 
+</div>
 
 ## R Markdown
 

@@ -21,8 +21,8 @@ script:
   - cp ./*.Rmd ./output
   - cp -r ./assets ./output
   - cd output
+  - Rscript -e "rmarkdown::render('simple.Rmd')"
   - Rscript -e "rmarkdown::render('index.Rmd')"
-  - rm *.Rmd
   - git add --all -f ./*
   - git commit -m"Update site"
   - git push origin gh-pages

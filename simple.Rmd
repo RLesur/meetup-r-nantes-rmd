@@ -1,0 +1,52 @@
+---
+title: "Keep It Simple"
+author: "Romain Lesur"
+output: 
+  pdf_document:
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+## Introduction
+
+Quelques mots sur les données.
+
+## Du texte et un graphique
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod, dolor at faucibus finibus, lacus nunc gravida mauris, ac porttitor felis turpis a purus. Mauris aliquam risus ut erat accumsan, id gravida purus dignissim. Donec tortor est, fringilla sit amet magna at, mattis pulvinar erat. Aenean tellus ante, rutrum non purus eu, commodo vehicula leo. Mauris congue urna nec tristique eleifend. Sed tincidunt vel justo id pellentesque. Proin sagittis fermentum tellus, eu viverra neque eleifend at. Suspendisse potenti.
+
+Source du graphique : http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+```{r graphique, fig.height=4}
+library(ggplot2)
+library(quantmod)
+data("economics", package = "ggplot2")
+
+# Compute % Returns
+economics$returns_perc <- c(0, diff(economics$psavert)/economics$psavert[-length(economics$psavert)])
+
+# Create break points and labels for axis ticks
+brks <- economics$date[seq(1, length(economics$date), 12)]
+lbls <- lubridate::year(economics$date[seq(1, length(economics$date), 12)])
+
+# Plot
+ggplot(economics[1:100, ], aes(date, returns_perc)) + 
+  geom_area() + 
+  scale_x_date(breaks=brks, labels=lbls) + 
+  theme(axis.text.x = element_text(angle=90)) + 
+  labs(title="Area Chart", 
+       subtitle = "Perc Returns for Personal Savings", 
+       y="% Returns for Personal savings", 
+       caption="Source: economics")
+```
+
+## Un tableau avec quelques données
+
+Voici un petit tableau :
+
+```{r tableau}
+head(economics, n = 3L)
+```
