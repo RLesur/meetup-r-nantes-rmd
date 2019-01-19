@@ -30,23 +30,39 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2rj0z1.jpg data-background-position="50% 75%" data-background-size=90%}
 
-## _Keep it simple_
+## Un principe : _Keep it simple_
 
 <div class="columns-2">
 <embed src="simple.pdf" type="application/pdf" width="100%" height="500px" />
 
+```{r, echo=FALSE}
+library(htmltools)
+tmp_files <- tempfile(fileext = c(".md", ".html"))
+names(tmp_files) <- c("md", "html")
+tmp_files <- as.list(tmp_files)
+
+writeLines(
+  c(
+    "~~~~~~markdown", 
+    paste0(readLines("simple.Rmd")),
+    "~~~~~~"
+  ),
+  con = tmp_files$md
+)
+
+rmarkdown::pandoc_convert(
+  input = tmp_files$md, 
+  to = "html5", 
+  output = tmp_files$html,
+  options = c("-s", '-M', 'title="Fichier R Markdown"', '-M', 'lang="fr"')
+)
+
+srcdoc <- paste(readLines(tmp_files$html), collapse = "\n")
 
 
-
-<div width="100%" height="500px">
-<pre style="overflow:scroll;">
-```{r simplermd, echo=FALSE, results='asis'}
-cat(paste(readLines("simple.Rmd"), collapse = "\n"))
+div(tag("iframe", list(srcdoc = srcdoc, style = 'height:500px!important;')))
 ```
-</pre>
-</div>
 
- 
 </div>
 
 ## R Markdown
