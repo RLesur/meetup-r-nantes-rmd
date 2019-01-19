@@ -1,122 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Créez vos documents avec R Markdown</title>
-
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="generator" content="pandoc" />
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <base target="_blank">
-
-  <script type="text/javascript">
-    var SLIDE_CONFIG = {
-      // Slide settings
-      settings: {
-                title: 'Créez vos documents avec <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" alt="R Markdown" style="vertical-align: middle;" width="100" />',
-                        useBuilds: true,
-        usePrettify: true,
-        enableSlideAreas: true,
-        enableTouch: true,
-                        favIcon: 'index_files/logo.jpeg',
-              },
-
-      // Author information
-      presenters: [
-            {
-        name:  'Romain Lesur' ,
-        company: '',
-        gplus: '',
-        twitter: '',
-        www: '',
-        github: ''
-      },
-            ]
-    };
-  </script>
-
-  <link href="index_files/ioslides-13.5.1/fonts/fonts.css" rel="stylesheet" />
-  <link href="index_files/ioslides-13.5.1/theme/css/default.css" rel="stylesheet" />
-  <link href="index_files/ioslides-13.5.1/theme/css/phone.css" rel="stylesheet" />
-  <script src="index_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/hammer.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/slide-controller.js"></script>
-  <script src="index_files/ioslides-13.5.1/js/slide-deck.js"></script>
-
-  <style type="text/css">
-
-    b, strong {
-      font-weight: bold;
-    }
-
-    em {
-      font-style: italic;
-    }
-
-    summary {
-      display: list-item;
-    }
-
-    slides > slide {
-      -webkit-transition: all 0.4s ease-in-out;
-      -moz-transition: all 0.4s ease-in-out;
-      -o-transition: all 0.4s ease-in-out;
-      transition: all 0.4s ease-in-out;
-    }
-
-    .auto-fadein {
-      -webkit-transition: opacity 0.6s ease-in;
-      -webkit-transition-delay: 0.4s;
-      -moz-transition: opacity 0.6s ease-in 0.4s;
-      -o-transition: opacity 0.6s ease-in 0.4s;
-      transition: opacity 0.6s ease-in 0.4s;
-      opacity: 0;
-    }
-
-    slides > slide:not(.nobackground):before {
-      font-size: 12pt;
-      content: "";
-      position: absolute;
-      bottom: 20px;
-      left: 60px;
-      background: url(index_files/logo.jpeg) no-repeat 0 50%;
-      -webkit-background-size: 30px 30px;
-      -moz-background-size: 30px 30px;
-      -o-background-size: 30px 30px;
-      background-size: 30px 30px;
-      padding-left: 40px;
-      height: 30px;
-      line-height: 1.9;
-    }
-  </style>
+---
+title: |
+  Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
+author: "Romain Lesur"
+date: "21 janvier 2019"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: "assets/meetuprnantes.jpeg"
+    keep_md: true
+---
 
 
-</head>
-
-<body style="opacity: 0">
-
-<slides class="layout-widescreen">
-
-  <slide class="title-slide segue nobackground">
-        <aside class="gdbar"><img src="index_files/logo.jpeg"></aside>
-        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
-    <hgroup class="auto-fadein">
-      <h1 data-config-title><!-- populated from slide_config.json --></h1>
-      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
-      <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">21 janvier 2019</p>
-          </hgroup>
-  </slide>
 
 <style type="text/css">
 .title-slide {
@@ -127,178 +22,170 @@
 }
 </style>
 
-<slide class="fill nobackground" style="background-image: url(assets/2riz84.jpg); background-size: 70%; background-position: 50% 75%;"><hgroup><h2>Pourquoi utiliser R Markdown ?</h2></hgroup><article  id="pourquoi-utiliser-r-markdown">
+## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
-</article></slide><slide class="fill nobackground" style="background-image: url(assets/2rfny8.jpg); background-size: 70%; background-position: 50% 75%;"><hgroup><h2>Pourquoi utiliser R Markdown ?</h2></hgroup><article  id="pourquoi-utiliser-r-markdown-1">
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rfny8.jpg data-background-position="50% 75%" data-background-size=70%}
 
-</article></slide><slide class="fill nobackground" style="background-image: url(assets/2rj0z1.jpg); background-size: 90%; background-position: 50% 75%;"><hgroup><h2>Pourquoi utiliser R Markdown ?</h2></hgroup><article  id="pourquoi-utiliser-r-markdown-2">
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rj0z1.jpg data-background-position="50% 75%" data-background-size=90%}
 
-</article></slide><slide class=""><hgroup><h2>Un principe : <em>Keep it simple</em></h2></hgroup><article  id="un-principe-keep-it-simple">
+## Un principe : _Keep it simple_
 
 <div class="columns-2">
-
 <embed src="simple.pdf" type="application/pdf" width="100%" height="500px" />
 
-<div>
+<!--html_preserve--><div>
 <iframe srcdoc="&lt;!DOCTYPE html&gt;&#10;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;fr&quot; xml:lang=&quot;fr&quot;&gt;&#10;&lt;head&gt;&#10;  &lt;meta charset=&quot;utf-8&quot; /&gt;&#10;  &lt;meta name=&quot;generator&quot; content=&quot;pandoc&quot; /&gt;&#10;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=yes&quot; /&gt;&#10;  &lt;title&gt;Fichier R Markdown&lt;/title&gt;&#10;  &lt;style type=&quot;text/css&quot;&gt;&#10;      code{white-space: pre-wrap;}&#10;      span.smallcaps{font-variant: small-caps;}&#10;      span.underline{text-decoration: underline;}&#10;      div.column{display: inline-block; vertical-align: top; width: 50%;}&#10;  &lt;/style&gt;&#10;  &lt;style type=&quot;text/css&quot;&gt;&#10;a.sourceLine { display: inline-block; line-height: 1.25; }&#10;a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }&#10;a.sourceLine:empty { height: 1.2em; position: absolute; }&#10;.sourceCode { overflow: visible; }&#10;code.sourceCode { white-space: pre; position: relative; }&#10;div.sourceCode { margin: 1em 0; }&#10;pre.sourceCode { margin: 0; }&#10;@media screen {&#10;div.sourceCode { overflow: auto; }&#10;}&#10;@media print {&#10;code.sourceCode { white-space: pre-wrap; }&#10;a.sourceLine { text-indent: -1em; padding-left: 1em; }&#10;}&#10;pre.numberSource a.sourceLine&#10;  { position: relative; }&#10;pre.numberSource a.sourceLine:empty&#10;  { position: absolute; }&#10;pre.numberSource a.sourceLine::before&#10;  { content: attr(data-line-number);&#10;    position: absolute; left: -5em; text-align: right; vertical-align: baseline;&#10;    border: none; pointer-events: all;&#10;    -webkit-touch-callout: none; -webkit-user-select: none;&#10;    -khtml-user-select: none; -moz-user-select: none;&#10;    -ms-user-select: none; user-select: none;&#10;    padding: 0 4px; width: 4em;&#10;    color: #aaaaaa;&#10;  }&#10;pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }&#10;div.sourceCode&#10;  {  }&#10;@media screen {&#10;a.sourceLine::before { text-decoration: underline; }&#10;}&#10;code span.al { color: #ff0000; font-weight: bold; } /* Alert */&#10;code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */&#10;code span.at { color: #7d9029; } /* Attribute */&#10;code span.bn { color: #40a070; } /* BaseN */&#10;code span.bu { } /* BuiltIn */&#10;code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */&#10;code span.ch { color: #4070a0; } /* Char */&#10;code span.cn { color: #880000; } /* Constant */&#10;code span.co { color: #60a0b0; font-style: italic; } /* Comment */&#10;code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */&#10;code span.do { color: #ba2121; font-style: italic; } /* Documentation */&#10;code span.dt { color: #902000; } /* DataType */&#10;code span.dv { color: #40a070; } /* DecVal */&#10;code span.er { color: #ff0000; font-weight: bold; } /* Error */&#10;code span.ex { } /* Extension */&#10;code span.fl { color: #40a070; } /* Float */&#10;code span.fu { color: #06287e; } /* Function */&#10;code span.im { } /* Import */&#10;code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */&#10;code span.kw { color: #007020; font-weight: bold; } /* Keyword */&#10;code span.op { color: #666666; } /* Operator */&#10;code span.ot { color: #007020; } /* Other */&#10;code span.pp { color: #bc7a00; } /* Preprocessor */&#10;code span.sc { color: #4070a0; } /* SpecialChar */&#10;code span.ss { color: #bb6688; } /* SpecialString */&#10;code span.st { color: #4070a0; } /* String */&#10;code span.va { color: #19177c; } /* Variable */&#10;code span.vs { color: #4070a0; } /* VerbatimString */&#10;code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */&#10;  &lt;/style&gt;&#10;  &lt;!--[if lt IE 9]&gt;&#10;    &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js&quot;&gt;&lt;/script&gt;&#10;  &lt;![endif]--&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&lt;header&gt;&#10;&lt;h1 class=&quot;title&quot;&gt;Fichier R Markdown&lt;/h1&gt;&#10;&lt;/header&gt;&#10;&lt;div class=&quot;sourceCode&quot; id=&quot;cb1&quot;&gt;&lt;pre class=&quot;sourceCode markdown&quot;&gt;&lt;code class=&quot;sourceCode markdown&quot;&gt;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-1&quot; data-line-number=&quot;1&quot;&gt;---&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-2&quot; data-line-number=&quot;2&quot;&gt;title: &amp;quot;Keep It Simple&amp;quot;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-3&quot; data-line-number=&quot;3&quot;&gt;author: &amp;quot;Romain Lesur&amp;quot;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-4&quot; data-line-number=&quot;4&quot;&gt;output: &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-5&quot; data-line-number=&quot;5&quot;&gt;  pdf_document:&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-6&quot; data-line-number=&quot;6&quot;&gt;&lt;span class=&quot;bn&quot;&gt;    df_print: kable&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-7&quot; data-line-number=&quot;7&quot;&gt;---&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-8&quot; data-line-number=&quot;8&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-9&quot; data-line-number=&quot;9&quot;&gt;```{r setup, include=FALSE}&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-10&quot; data-line-number=&quot;10&quot;&gt;knitr::opts_chunk$set(echo = FALSE, message = FALSE)&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-11&quot; data-line-number=&quot;11&quot;&gt;```&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-12&quot; data-line-number=&quot;12&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-13&quot; data-line-number=&quot;13&quot;&gt;&lt;span class=&quot;fu&quot;&gt;## Introduction&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-14&quot; data-line-number=&quot;14&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-15&quot; data-line-number=&quot;15&quot;&gt;Quelques mots sur les données.&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-16&quot; data-line-number=&quot;16&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-17&quot; data-line-number=&quot;17&quot;&gt;&lt;span class=&quot;fu&quot;&gt;## Du texte et un graphique&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-18&quot; data-line-number=&quot;18&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-19&quot; data-line-number=&quot;19&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod, dolor at faucibus finibus, lacus nunc gravida mauris, ac porttitor felis turpis a purus. Mauris aliquam risus ut erat accumsan, id gravida purus dignissim. Donec tortor est, fringilla sit amet magna at, mattis pulvinar erat. Aenean tellus ante, rutrum non purus eu, commodo vehicula leo. Mauris congue urna nec tristique eleifend. Sed tincidunt vel justo id pellentesque. Proin sagittis fermentum tellus, eu viverra neque eleifend at. Suspendisse potenti.&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-20&quot; data-line-number=&quot;20&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-21&quot; data-line-number=&quot;21&quot;&gt;Source du graphique : http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-22&quot; data-line-number=&quot;22&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-23&quot; data-line-number=&quot;23&quot;&gt;```{r graphique, fig.height=4}&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-24&quot; data-line-number=&quot;24&quot;&gt;library(ggplot2)&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-25&quot; data-line-number=&quot;25&quot;&gt;library(quantmod)&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-26&quot; data-line-number=&quot;26&quot;&gt;data(&amp;quot;economics&amp;quot;, package = &amp;quot;ggplot2&amp;quot;)&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-27&quot; data-line-number=&quot;27&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-28&quot; data-line-number=&quot;28&quot;&gt;&lt;span class=&quot;fu&quot;&gt;# Compute % Returns&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-29&quot; data-line-number=&quot;29&quot;&gt;economics$returns_perc &amp;lt;- c(0, diff(economics$psavert)/economics$psavert[-length(economics$psavert)])&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-30&quot; data-line-number=&quot;30&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-31&quot; data-line-number=&quot;31&quot;&gt;&lt;span class=&quot;fu&quot;&gt;# Create break points and labels for axis ticks&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-32&quot; data-line-number=&quot;32&quot;&gt;brks &amp;lt;- economics$date[seq(1, length(economics$date), 12)]&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-33&quot; data-line-number=&quot;33&quot;&gt;lbls &amp;lt;- lubridate::year(economics$date[seq(1, length(economics$date), 12)])&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-34&quot; data-line-number=&quot;34&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-35&quot; data-line-number=&quot;35&quot;&gt;&lt;span class=&quot;fu&quot;&gt;# Plot&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-36&quot; data-line-number=&quot;36&quot;&gt;ggplot(economics[1:100, ], aes(date, returns_perc)) + &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-37&quot; data-line-number=&quot;37&quot;&gt;  geom_area() + &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-38&quot; data-line-number=&quot;38&quot;&gt;  scale_x_date(breaks=brks, labels=lbls) + &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-39&quot; data-line-number=&quot;39&quot;&gt;  theme(axis.text.x = element_text(angle=90)) + &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-40&quot; data-line-number=&quot;40&quot;&gt;  labs(title=&amp;quot;Area Chart&amp;quot;, &lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-41&quot; data-line-number=&quot;41&quot;&gt;&lt;span class=&quot;bn&quot;&gt;       subtitle = &amp;quot;Perc Returns for Personal Savings&amp;quot;, &lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-42&quot; data-line-number=&quot;42&quot;&gt;&lt;span class=&quot;bn&quot;&gt;       y=&amp;quot;% Returns for Personal savings&amp;quot;, &lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-43&quot; data-line-number=&quot;43&quot;&gt;&lt;span class=&quot;bn&quot;&gt;       caption=&amp;quot;Source: economics&amp;quot;)&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-44&quot; data-line-number=&quot;44&quot;&gt;```&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-45&quot; data-line-number=&quot;45&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-46&quot; data-line-number=&quot;46&quot;&gt;&lt;span class=&quot;fu&quot;&gt;## Un tableau avec quelques données&lt;/span&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-47&quot; data-line-number=&quot;47&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-48&quot; data-line-number=&quot;48&quot;&gt;Voici un petit tableau :&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-49&quot; data-line-number=&quot;49&quot;&gt;&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-50&quot; data-line-number=&quot;50&quot;&gt;```{r tableau}&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-51&quot; data-line-number=&quot;51&quot;&gt;head(economics, n = 3L)&lt;/a&gt;&#10;&lt;a class=&quot;sourceLine&quot; id=&quot;cb1-52&quot; data-line-number=&quot;52&quot;&gt;```&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" style="height:500px!important;"></iframe>
-</div>
+</div><!--/html_preserve-->
 
 </div>
 
-</article></slide><slide class=""><hgroup><h2>R Markdown</h2></hgroup><article  id="r-markdown">
+## R Markdown
 
-<p>This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href='http://rmarkdown.rstudio.com' title=''>http://rmarkdown.rstudio.com</a>.</p>
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.</p>
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-</article></slide><slide class=""><hgroup><h2>Slide with Bullets</h2></hgroup><article  id="slide-with-bullets">
+## Slide with Bullets
 
-<ul>
-<li>Bullet 1</li>
-<li>Bullet 2</li>
-<li>Bullet 3</li>
-</ul>
+- Bullet 1
+- Bullet 2
+- Bullet 3
 
-</article></slide><slide class=""><hgroup><h2>Différents languages autorisés</h2></hgroup><article  id="differents-languages-autorises">
+## Différents languages autorisés
 
-<pre class = 'prettyprint lang-r'>names(knitr::knit_engines$get())</pre>
 
-<pre >##  [1] &quot;awk&quot;       &quot;bash&quot;      &quot;coffee&quot;    &quot;gawk&quot;      &quot;groovy&quot;   
-##  [6] &quot;haskell&quot;   &quot;lein&quot;      &quot;mysql&quot;     &quot;node&quot;      &quot;octave&quot;   
-## [11] &quot;perl&quot;      &quot;psql&quot;      &quot;Rscript&quot;   &quot;ruby&quot;      &quot;sas&quot;      
-## [16] &quot;scala&quot;     &quot;sed&quot;       &quot;sh&quot;        &quot;stata&quot;     &quot;zsh&quot;      
-## [21] &quot;highlight&quot; &quot;Rcpp&quot;      &quot;tikz&quot;      &quot;dot&quot;       &quot;c&quot;        
-## [26] &quot;fortran&quot;   &quot;fortran95&quot; &quot;asy&quot;       &quot;cat&quot;       &quot;asis&quot;     
-## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
-## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
+```r
+names(knitr::knit_engines$get())
+```
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code></h2></hgroup><article  id="exemple-python">
+```
+##  [1] "awk"       "bash"      "coffee"    "gawk"      "groovy"   
+##  [6] "haskell"   "lein"      "mysql"     "node"      "octave"   
+## [11] "perl"      "psql"      "Rscript"   "ruby"      "sas"      
+## [16] "scala"     "sed"       "sh"        "stata"     "zsh"      
+## [21] "highlight" "Rcpp"      "tikz"      "dot"       "c"        
+## [26] "fortran"   "fortran95" "asy"       "cat"       "asis"     
+## [31] "stan"      "block"     "block2"    "js"        "css"      
+## [36] "sql"       "go"        "python"    "julia"
+```
 
-<pre class = 'prettyprint lang-python'>a = 1 + 2
-print(a)</pre>
+## Exemple : `python`
 
-<pre >## 3</pre>
 
-<pre class = 'prettyprint lang-python'>import pandas as pd
+
+```python
+a = 1 + 2
+print(a)
+```
+
+```
+## 3
+```
+
+
+
+
+```python
+import pandas as pd
 import numpy as np
-dates = pd.date_range(&#39;20130101&#39;, periods=6)
-df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list(&#39;ABCD&#39;))
-print(df)</pre>
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+print(df)
+```
 
-<pre >##                    A         B         C         D
+```
+##                    A         B         C         D
 ## 2013-01-01 -0.609552  0.655283 -0.223467  0.021406
 ## 2013-01-02  0.487587 -0.792637  0.810214 -0.465211
 ## 2013-01-03 -0.817697 -1.368888  0.548597  0.271364
 ## 2013-01-04  0.553751 -1.208820  0.553546  1.309373
 ## 2013-01-05 -1.335506  1.040081 -1.164823  0.860691
-## 2013-01-06  1.786913 -0.467727  0.546121  0.066572</pre>
+## 2013-01-06  1.786913 -0.467727  0.546121  0.066572
+```
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code></h2></hgroup><article  id="exemple-node.js">
 
-<pre class = 'prettyprint lang-javascript'>const hi = (name) =&gt; {
-  console.log(&quot;Hello &quot; + name + &quot;!&quot;);
+## Exemple : `node.js`
+
+
+```javascript
+const hi = (name) => {
+  console.log("Hello " + name + "!");
 }
 
-hi(&quot;Bob&quot;);</pre>
+hi("Bob");
+```
 
-<pre >## Hello Bob!</pre>
+```
+## Hello Bob!
+```
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>SQL</code></h2></hgroup><article  id="exemple-sql">
+## Exemple : `SQL`
 
-<pre class = 'prettyprint lang-r'>con &lt;- DBI::dbConnect(RSQLite::SQLite(), path = &quot;:memory:&quot;)
-DBI::dbWriteTable(con, &quot;mtcars&quot;, mtcars)</pre>
 
-<pre class = 'prettyprint lang-sql'>SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;</pre>
+```r
+con <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
+DBI::dbWriteTable(con, "mtcars", mtcars)
+```
+
+
+```sql
+SELECT name FROM sqlite_master WHERE type='table';
+```
+
 
 <div class="knitsql-table">
-<table class = 'rmdtable'>
-<caption>1 records</caption>
-<tr class="header">
-<th align="left">name</th>
-</tr>
-<tr class="odd">
-<td align="left">mtcars</td>
-</tr>
-</table></div>
 
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<pre class = 'prettyprint lang-sql'>SELECT mpg, cyl, disp FROM mtcars
-       LIMIT 3;</pre>
+Table: 1 records
+
+|name   |
+|:------|
+|mtcars |
+
+</div>
+
+---
+
+
+```sql
+SELECT mpg, cyl, disp FROM mtcars
+       LIMIT 3;
+```
+
 
 <div class="knitsql-table">
-<table class = 'rmdtable'>
-<caption>3 records</caption>
-<tr class="header">
-<th align="right">mpg</th>
-<th align="right">cyl</th>
-<th align="right">disp</th>
-</tr>
-<tr class="odd">
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-</tr>
-<tr class="even">
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-</tr>
-<tr class="odd">
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">108</td>
-</tr>
-</table></div>
-
-<p><strong>Se déconnecter :</strong></p>
-
-<pre class = 'prettyprint lang-r'>DBI::dbDisconnect(con)</pre>
-
-</article></slide><slide class=""><hgroup><h2>Hacker R Markdown</h2></hgroup><article  id="hacker-r-markdown">
-
-<h3>Hacker le bouton <code>knit</code> de RStudio</h3>
-
-<p>Rajouter dans l’en-tête YAML du fichier <code>Rmd</code> une ligne qui renvoie une fonction \(\lambda\) ayant pour arguments <code>(inputFile, encoding)</code></p>
-
-<pre class = 'prettyprint lang-yaml'>knit: (function(inputFile, encoding){...})</pre>
-
-<p>Si en plus la fonction comprend <code>message(&quot;Output created: &quot;, outputFile)</code>, le viewer de RStudio l’ouvrira.</p>
-
-<p>Voir <a href='https://github.com/rstudio/rmarkdown/issues/277' title=''>https://github.com/rstudio/rmarkdown/issues/277</a></p>
-
-<ul>
-<li>Hacker <code>knitr</code></li>
-</ul></article></slide>
 
 
-  <slide class="backdrop"></slide>
+Table: 3 records
 
-</slides>
+  mpg   cyl   disp
+-----  ----  -----
+ 21.0     6    160
+ 21.0     6    160
+ 22.8     4    108
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+</div>
 
-<!-- map slide visiblity events into shiny -->
-<script>
-  (function() {
-    if (window.jQuery) {
-       window.jQuery(document).on('slideleave', function(e) {
-         window.jQuery(e.target).trigger('hidden');
-      });
-       window.jQuery(document).on('slideenter', function(e) {
-         window.jQuery(e.target).trigger('shown');
-      });
-    }
-  })();
-</script>
+**Se déconnecter :**
 
-</body>
-</html>
+
+```r
+DBI::dbDisconnect(con)
+```
+
+
+## Hacker R Markdown
+
+### Hacker le bouton `knit` de RStudio
+
+Rajouter dans l'en-tête YAML du fichier `Rmd` une ligne qui renvoie une fonction $\lambda$ ayant pour arguments `(inputFile, encoding)`
+
+```yaml
+knit: (function(inputFile, encoding){...})
+```
+
+Si en plus la fonction comprend `message("Output created: ", outputFile)`, le viewer de RStudio l'ouvrira.
+
+Voir <https://github.com/rstudio/rmarkdown/issues/277>
+
+- Hacker `knitr`

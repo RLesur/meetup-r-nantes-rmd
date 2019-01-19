@@ -1,0 +1,160 @@
+---
+title: |
+  Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
+author: "Romain Lesur"
+date: "21 janvier 2019"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: "assets/meetuprnantes.jpeg"
+    keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{css firstpagebg, echo=FALSE}
+.title-slide {
+  background-image: url('assets/sharon-mccutcheon-576867-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: lighten;
+}
+```
+
+## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
+
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rfny8.jpg data-background-position="50% 75%" data-background-size=70%}
+
+## Pourquoi utiliser R Markdown ? {data-background=assets/2rj0z1.jpg data-background-position="50% 75%" data-background-size=90%}
+
+## Un principe : _Keep it simple_
+
+<div class="columns-2">
+<embed src="simple.pdf" type="application/pdf" width="100%" height="500px" />
+
+```{r, echo=FALSE}
+library(htmltools)
+tmp_files <- tempfile(fileext = c(".md", ".html"))
+names(tmp_files) <- c("md", "html")
+tmp_files <- as.list(tmp_files)
+
+writeLines(
+  c(
+    "~~~~~~markdown", 
+    paste0(readLines("simple.Rmd")),
+    "~~~~~~"
+  ),
+  con = tmp_files$md
+)
+
+rmarkdown::pandoc_convert(
+  input = tmp_files$md, 
+  to = "html5", 
+  output = tmp_files$html,
+  options = c("-s", '-M', 'title="Fichier R Markdown"', '-M', 'lang="fr"')
+)
+
+srcdoc <- paste(readLines(tmp_files$html), collapse = "\n")
+
+
+div(tag("iframe", list(srcdoc = srcdoc, style = 'height:500px!important;')))
+```
+
+</div>
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Différents languages autorisés
+
+```{r}
+names(knitr::knit_engines$get())
+```
+
+## Exemple : `python`
+
+```{r include=FALSE}
+library(reticulate)
+use_python("usr/local/bin/python")
+use_virtualenv("r-reticulate")
+py_install(c("pandas", "numpy"))
+```
+```{python}
+a = 1 + 2
+print(a)
+```
+
+
+
+```{python}
+import pandas as pd
+import numpy as np
+
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+print(df)
+```
+
+
+## Exemple : `node.js`
+
+```{node}
+const hi = (name) => {
+  console.log("Hello " + name + "!");
+}
+
+hi("Bob");
+```
+
+## Exemple : `SQL`
+
+```{r}
+con <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
+DBI::dbWriteTable(con, "mtcars", mtcars)
+```
+
+```{sql connection=con}
+SELECT name FROM sqlite_master WHERE type='table';
+```
+
+---
+
+```{sql connection=con}
+SELECT mpg, cyl, disp FROM mtcars
+       LIMIT 3;
+```
+
+**Se déconnecter :**
+
+```{r}
+DBI::dbDisconnect(con)
+```
+
+
+## Hacker R Markdown
+
+### Hacker le bouton `knit` de RStudio
+
+Rajouter dans l'en-tête YAML du fichier `Rmd` une ligne qui renvoie une fonction $\lambda$ ayant pour arguments `(inputFile, encoding)`
+
+```yaml
+knit: (function(inputFile, encoding){...})
+```
+
+Si en plus la fonction comprend `message("Output created: ", outputFile)`, le viewer de RStudio l'ouvrira.
+
+Voir <https://github.com/rstudio/rmarkdown/issues/277>
+
+- Hacker `knitr`
