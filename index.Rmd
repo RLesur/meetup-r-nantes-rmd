@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{css echo=FALSE}
@@ -39,6 +39,44 @@ When you click the **Knit** button a document will be generated that includes bo
 - Bullet 3
 
 ## Différents languages autorisés
+
+```{r}
+names(knitr::knit_engines$get())
+```
+
+## Exemple : `node.js`
+
+```{node}
+const hi = (name) => {
+  console.log("Hello " + name + "!");
+}
+
+hi("Bob");
+```
+
+## Exemple : `SQL`
+
+```{r}
+con <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
+DBI::dbWriteTable(con, "mtcars", mtcars)
+```
+
+```{sql connection=con}
+SELECT name FROM sqlite_master WHERE type='table';
+```
+
+---
+
+```{sql connection=con}
+SELECT mpg, cyl, disp FROM mtcars
+       LIMIT 3;
+```
+
+**Se déconnecter :**
+
+```{r}
+DBI::dbDisconnect(con)
+```
 
 
 ## Hacker R Markdown
