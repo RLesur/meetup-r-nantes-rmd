@@ -145,6 +145,79 @@
 
 </article></slide><slide class=""><hgroup><h2>Différents languages autorisés</h2></hgroup><article  id="differents-languages-autorises">
 
+<pre class = 'prettyprint lang-r'>names(knitr::knit_engines$get())</pre>
+
+<pre >##  [1] &quot;awk&quot;       &quot;bash&quot;      &quot;coffee&quot;    &quot;gawk&quot;      &quot;groovy&quot;   
+##  [6] &quot;haskell&quot;   &quot;lein&quot;      &quot;mysql&quot;     &quot;node&quot;      &quot;octave&quot;   
+## [11] &quot;perl&quot;      &quot;psql&quot;      &quot;Rscript&quot;   &quot;ruby&quot;      &quot;sas&quot;      
+## [16] &quot;scala&quot;     &quot;sed&quot;       &quot;sh&quot;        &quot;stata&quot;     &quot;zsh&quot;      
+## [21] &quot;highlight&quot; &quot;Rcpp&quot;      &quot;tikz&quot;      &quot;dot&quot;       &quot;c&quot;        
+## [26] &quot;fortran&quot;   &quot;fortran95&quot; &quot;asy&quot;       &quot;cat&quot;       &quot;asis&quot;     
+## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
+## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
+
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code></h2></hgroup><article  id="exemple-node.js">
+
+<pre class = 'prettyprint lang-javascript'>const hi = (name) =&gt; {
+  console.log(&quot;Hello &quot; + name + &quot;!&quot;);
+}
+
+hi(&quot;Bob&quot;);</pre>
+
+<pre >## Hello Bob!</pre>
+
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>SQL</code></h2></hgroup><article  id="exemple-sql">
+
+<pre class = 'prettyprint lang-r'>con &lt;- DBI::dbConnect(RSQLite::SQLite(), path = &quot;:memory:&quot;)
+DBI::dbWriteTable(con, &quot;mtcars&quot;, mtcars)</pre>
+
+<pre class = 'prettyprint lang-sql'>SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;</pre>
+
+<div class="knitsql-table">
+<table class = 'rmdtable'>
+<caption>1 records</caption>
+<tr class="header">
+<th align="left">name</th>
+</tr>
+<tr class="odd">
+<td align="left">mtcars</td>
+</tr>
+</table></div>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<pre class = 'prettyprint lang-sql'>SELECT mpg, cyl, disp FROM mtcars
+       LIMIT 3;</pre>
+
+<div class="knitsql-table">
+<table class = 'rmdtable'>
+<caption>3 records</caption>
+<tr class="header">
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+</tr>
+<tr class="odd">
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+</tr>
+<tr class="even">
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+</tr>
+<tr class="odd">
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
+</tr>
+</table></div>
+
+<p><strong>Se déconnecter :</strong></p>
+
+<pre class = 'prettyprint lang-r'>DBI::dbDisconnect(con)</pre>
+
 </article></slide><slide class=""><hgroup><h2>Hacker R Markdown</h2></hgroup><article  id="hacker-r-markdown">
 
 <h3>Hacker le bouton <code>knit</code> de RStudio</h3>
