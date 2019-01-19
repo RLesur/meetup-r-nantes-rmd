@@ -44,6 +44,31 @@ When you click the **Knit** button a document will be generated that includes bo
 names(knitr::knit_engines$get())
 ```
 
+## Exemple : `python`
+
+```{r include=FALSE}
+library(reticulate)
+use_python("usr/local/bin/python")
+use_virtualenv("r-reticulate")
+py_install(c("pandas", "numpy"))
+```
+```{python}
+a = 1 + 2
+print(a)
+```
+
+
+
+```{python}
+import pandas as pd
+import numpy as np
+
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+print(df)
+```
+
+
 ## Exemple : `node.js`
 
 ```{node}
