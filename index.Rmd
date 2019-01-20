@@ -1,6 +1,7 @@
 ---
 title: |
   Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
+pagetitle: Créez vos documents avec R Markdown
 author: Romain Lesur
 date: 21 janvier 2019
 output: 
@@ -72,7 +73,7 @@ snoopy <- tagList(
 
 - <div style="width:60%;">
   où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) 🇫🇷 **grrr** `r snoopy`  
+  * ![](assets/Slack_RGB-99x25.png) FR **grrr** `r snoopy`  
     \
     **Venez-nous rejoindre !**  
     [frama.link/r-grrr](https://frama.link/r-grrr)  
@@ -89,7 +90,6 @@ snoopy <- tagList(
 ## Un principe : _Keep it simple_
 
 ```{r, echo=FALSE}
-library(htmltools)
 tmp_files <- tempfile(fileext = c(".md", ".html"))
 names(tmp_files) <- c("md", "html")
 tmp_files <- as.list(tmp_files)
@@ -131,42 +131,37 @@ div(class = "columns-2",
 
 ## Concepts de base de R Markdown
 
-- `Markdown` : une façon simple d'écrire du texte
+1. `Markdown` : une façon simple d'écrire du texte (`r emo::ji('right_arrow')` `pandoc`)
 
-- _Chunks_ : code dont le résulat sera inséré dans le document final
+1. _Chunks_ : code dont le résulat sera inséré dans le document final
 
-- En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options, méta-données...)
+1. En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options, méta-données...)
 
-Introduction en 🇫🇷
+Introduction en FR
 
-- Julien Barnier : https://juba.github.io/tidyverse/13-rmarkdown.html
+- Julien Barnier : <https://juba.github.io/tidyverse/13-rmarkdown.html>
+
+
+## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
+
+
 
 ## R Markdown Cheat Sheet
 
 ```{css, echo=FALSE}
-\#cheatsheet {
-content: "coucou";
+.license {
+  font-size: 70%;
+  position: absolute;
+  top: 100px;
 }
 ```
 
+[[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
 
 `r tags$embed(id="cheatsheet", src="assets/rmarkdown-2.0.pdf", type="application/pdf", width="100%", height="500px")`
 
-## Diapo Daphné
-
 ## Markdown : simple mais puissant
-## R
- Markdown
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
 
 ## Différents languages autorisés
 
