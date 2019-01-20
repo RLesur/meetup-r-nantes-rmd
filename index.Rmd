@@ -1,8 +1,8 @@
 ---
 title: |
   Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
-author: "Romain Lesur"
-date: "21 janvier 2019"
+author: Romain Lesur
+date: 21 janvier 2019
 output: 
   ioslides_presentation:
     widescreen: true
@@ -24,6 +24,28 @@ knitr::opts_chunk$set(echo = TRUE)
 }
 ```
 
+## Qui suis-je ?
+
+```{css, echo=FALSE}
+img[src*="Slack"] {
+  vertical-align: bottom;
+}
+.twitter svg {
+  fill: #1da1f2;
+}
+```
+
+- administrateur de l'Insee
+
+- utilisateur de R depuis ~ 10 ans
+  * occasionnel pendant 8 ans, plus intense depuis 2 ans
+  * **fan absolu de R Markdown**
+
+- où suis-je ?
+  * ![](assets/Slack_RGB-99x25.png) `grrr` [frama.link/r-grrr](https://frama.link/r-grrr) : venez-nous rejoindre !
+  * `r fontawesome::fa('github')` [github.com/rlesur](https://github.com/RLesur) 
+  * [`r fontawesome::fa('twitter')`]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2rfny8.jpg data-background-position="50% 75%" data-background-size=70%}
@@ -31,9 +53,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2rj0z1.jpg data-background-position="50% 75%" data-background-size=90%}
 
 ## Un principe : _Keep it simple_
-
-<div class="columns-2">
-<embed src="simple.pdf" type="application/pdf" width="100%" height="500px" />
 
 ```{r, echo=FALSE}
 library(htmltools)
@@ -59,11 +78,31 @@ rmarkdown::pandoc_convert(
 
 srcdoc <- paste(readLines(tmp_files$html), collapse = "\n")
 
-
-div(tag("iframe", list(srcdoc = srcdoc, style = 'height:500px!important;')))
+div(class = "columns-2",
+  tag("embed", list(src= "simple.pdf", type="application/pdf", width="100%", height="500px")),
+  div(
+    tag("iframe", list(srcdoc = srcdoc, style = 'height:500px!important;'))
+  )
+)
 ```
 
-</div>
+## Prise en main dans RStudio
+
+- RStudio : compagnon idéal 
+
+## Concepts de base de R Markdown
+
+- `Markdown` : une façon simple d'écrire du texte
+
+- _Chunks_ : code dont le résulat sera inséré dans le document final
+
+- En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options...)
+
+Introduction en 🇫🇷
+
+- Julien Barnier : https://juba.github.io/tidyverse/13-rmarkdown.html
+
+
 
 ## R Markdown
 
