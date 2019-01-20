@@ -1,6 +1,6 @@
 ---
 title: |
-  Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
+  Créez vos documents avec [![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}](https://bookdown.org/yihui/rmarkdown/)
 pagetitle: Créez vos documents avec R Markdown
 author: Romain Lesur
 date: 21 janvier 2019
@@ -73,7 +73,7 @@ snoopy <- tagList(
 
 - <div style="width:60%;">
   où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) FR **grrr** `r snoopy`  
+  * ![](assets/Slack_RGB-99x25.png) `r emo::ji('fr')` **grrr** `r snoopy`  
     \
     **Venez-nous rejoindre !**  
     [frama.link/r-grrr](https://frama.link/r-grrr)  
@@ -126,21 +126,38 @@ div(class = "columns-2",
   * Menu `File > New File > R Markdown...`
   * Conseil : désactiver le mode _notebook_   
   `Tools > Global Options` `r htmltools::img(src= "assets/rstd.png", width = "300px", style='vertical-align:text-top;')`
-- si vous n'avez pas $\LaTeX$ d'installé, utilisez le package [`tinytex`](https://cran.r-project.org/package=tinytex)
+- pour les pdf, si vous n'avez pas $\LaTeX$ d'installé, utilisez le package [`tinytex`](https://cran.r-project.org/package=tinytex)
 [_demo..._]{style="float:right;padding-top:40px;"}
 
 ## Concepts de base de R Markdown
 
-1. `Markdown` : une façon simple d'écrire du texte (`r emo::ji('right_arrow')` `pandoc`)
+1. En-tête `YAML` : indications données au package [`rmarkdown`](https://bookdown.org/yihui/rmarkdown/) (type de document souhaité, options, méta-données...)
 
-1. _Chunks_ : code dont le résulat sera inséré dans le document final
+1. _Chunks_ : code dont le résulat sera inséré dans le document final (`r emo::ji('right_arrow')` [`knitr`](https://yihui.name/knitr/))
 
-1. En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options, méta-données...)
+1. `Markdown` : une façon simple d'écrire du texte (`r emo::ji('right_arrow')` [`pandoc`](https://pandoc.org/MANUAL.html#pandocs-markdown))
 
-Introduction en FR
+Introduction en `r emo::ji('fr')`
 
 - Julien Barnier : <https://juba.github.io/tidyverse/13-rmarkdown.html>
 
+## En-tête du document
+
+```yaml
+---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: "assets/meetuprnantes.jpeg"
+    keep_md: true
+---
+```
+
+`r emo::ji('warning')` `r emo::ji('warning')` **Attention à l'indentation** `r emo::ji('warning')` `r emo::ji('warning')`
 
 ## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
 
@@ -158,10 +175,7 @@ Introduction en FR
 
 [[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
 
-`r tags$embed(id="cheatsheet", src="assets/rmarkdown-2.0.pdf", type="application/pdf", width="100%", height="500px")`
-
-## Markdown : simple mais puissant
-
+`r tags$embed(id="cheatsheet", src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf", width="100%", height="500px")`
 
 ## Différents languages autorisés
 
