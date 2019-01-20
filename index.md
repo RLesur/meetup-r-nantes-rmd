@@ -1,6 +1,6 @@
 ---
 title: |
-  Créez vos documents avec ![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}
+  Créez vos documents avec [![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}](https://bookdown.org/yihui/rmarkdown/)
 pagetitle: Créez vos documents avec R Markdown
 author: Romain Lesur
 date: 21 janvier 2019
@@ -47,7 +47,7 @@ img[src*="Slack"] {
 
 - <div style="width:60%;">
   où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) FR **grrr** <!--html_preserve--><div style="float:right;" class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
+  * ![](assets/Slack_RGB-99x25.png) 🇫🇷 **grrr** <!--html_preserve--><div style="float:right;" class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
 <a href="https://tenor.com/view/snoopy-dance-happy-emotion-response-gif-7404986">Snoopy Dance GIF</a>
 from
 <a href="https://tenor.com/search/snoopy-gifs">Snoopy GIFs</a>
@@ -81,21 +81,38 @@ from
   * Menu `File > New File > R Markdown...`
   * Conseil : désactiver le mode _notebook_   
   `Tools > Global Options` <!--html_preserve--><img src="assets/rstd.png" width="300px" style="vertical-align:text-top;"/><!--/html_preserve-->
-- si vous n'avez pas $\LaTeX$ d'installé, utilisez le package [`tinytex`](https://cran.r-project.org/package=tinytex)
+- pour les pdf, si vous n'avez pas $\LaTeX$ d'installé, utilisez le package [`tinytex`](https://cran.r-project.org/package=tinytex)
 [_demo..._]{style="float:right;padding-top:40px;"}
 
 ## Concepts de base de R Markdown
 
-1. `Markdown` : une façon simple d'écrire du texte (➡️ `pandoc`)
+1. En-tête `YAML` : indications données au package [`rmarkdown`](https://bookdown.org/yihui/rmarkdown/) (type de document souhaité, options, méta-données...)
 
-1. _Chunks_ : code dont le résulat sera inséré dans le document final
+1. _Chunks_ : code dont le résulat sera inséré dans le document final (➡️ [`knitr`](https://yihui.name/knitr/))
 
-1. En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options, méta-données...)
+1. `Markdown` : une façon simple d'écrire du texte (➡️ [`pandoc`](https://pandoc.org/MANUAL.html#pandocs-markdown))
 
-Introduction en FR
+Introduction en 🇫🇷
 
 - Julien Barnier : <https://juba.github.io/tidyverse/13-rmarkdown.html>
 
+## En-tête du document
+
+```yaml
+---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: "assets/meetuprnantes.jpeg"
+    keep_md: true
+---
+```
+
+⚠️ ⚠️ **Attention à l'indentation** ⚠️ ⚠️
 
 ## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
 
@@ -113,10 +130,7 @@ Introduction en FR
 
 [[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
 
-<!--html_preserve--><embed id="cheatsheet" src="assets/rmarkdown-2.0.pdf" type="application/pdf" width="100%" height="500px"/><!--/html_preserve-->
-
-## Markdown : simple mais puissant
-
+<!--html_preserve--><embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/><!--/html_preserve-->
 
 ## Différents languages autorisés
 
@@ -162,12 +176,12 @@ print(df)
 
 ```
 ##                    A         B         C         D
-## 2013-01-01  0.764929 -0.857624 -1.483070  1.451230
-## 2013-01-02  0.459336  2.363289  1.729288 -0.318701
-## 2013-01-03  1.093356  1.846077 -1.209008  0.668399
-## 2013-01-04 -0.469401 -0.902958 -1.343912 -0.675403
-## 2013-01-05  0.721307  1.306399 -0.593882  0.022581
-## 2013-01-06 -0.503053 -1.295675 -2.572459 -0.535750
+## 2013-01-01 -1.276365 -0.933282 -0.372604  1.375677
+## 2013-01-02 -1.733682 -1.336669  0.746140 -0.043484
+## 2013-01-03  0.847932 -1.103912  0.392002 -0.334038
+## 2013-01-04 -0.317123 -0.490057  0.008945 -2.196099
+## 2013-01-05 -1.557857 -0.068387 -1.292196 -1.254921
+## 2013-01-06 -0.511724 -0.349377  0.979968 -0.794116
 ```
 
 

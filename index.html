@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Créez vos documents avec <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" alt="R Markdown" style="vertical-align: middle;" width="100" />',
+                title: 'Créez vos documents avec <a href="https://bookdown.org/yihui/rmarkdown/"><img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" alt="R Markdown" style="vertical-align: middle;" width="100" /></a>',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -153,7 +153,7 @@ img[src*="Slack"] {
 où suis-je ?
 
 <ul>
-<li><img src='assets/Slack_RGB-99x25.png' title=''/> FR <strong>grrr</strong> <div style="float:right;" class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
+<li><img src='assets/Slack_RGB-99x25.png' title=''/> 🇫🇷 <strong>grrr</strong> <div style="float:right;" class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
 <a href="https://tenor.com/view/snoopy-dance-happy-emotion-response-gif-7404986">Snoopy Dance GIF</a>
 from
 <a href="https://tenor.com/search/snoopy-gifs">Snoopy GIFs</a>
@@ -195,23 +195,39 @@ from
 <li>Menu <code>File &gt; New File &gt; R Markdown...</code></li>
 <li>Conseil : désactiver le mode <em>notebook</em><br/><code>Tools &gt; Global Options</code> <img src="assets/rstd.png" width="300px" style="vertical-align:text-top;"/></li>
 </ul></li>
-<li>si vous n’avez pas \(\LaTeX\) d’installé, utilisez le package <a href='https://cran.r-project.org/package=tinytex' title=''><code>tinytex</code></a> <span style="float:right;padding-top:40px;">
+<li>pour les pdf, si vous n’avez pas \(\LaTeX\) d’installé, utilisez le package <a href='https://cran.r-project.org/package=tinytex' title=''><code>tinytex</code></a> <span style="float:right;padding-top:40px;">
 <em>demo…</em></span></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Concepts de base de R Markdown</h2></hgroup><article  id="concepts-de-base-de-r-markdown">
 
 <ol>
-<li><p><code>Markdown</code> : une façon simple d’écrire du texte (➡️ <code>pandoc</code>)</p></li>
-<li><p><em>Chunks</em> : code dont le résulat sera inséré dans le document final</p></li>
-<li><p>En-tête <code>YAML</code> : indications données au package <code>rmarkdown</code> (type de document souhaité, options, méta-données…)</p></li>
+<li><p>En-tête <code>YAML</code> : indications données au package <a href='https://bookdown.org/yihui/rmarkdown/' title=''><code>rmarkdown</code></a> (type de document souhaité, options, méta-données…)</p></li>
+<li><p><em>Chunks</em> : code dont le résulat sera inséré dans le document final (➡️ <a href='https://yihui.name/knitr/' title=''><code>knitr</code></a>)</p></li>
+<li><p><code>Markdown</code> : une façon simple d’écrire du texte (➡️ <a href='https://pandoc.org/MANUAL.html#pandocs-markdown' title=''><code>pandoc</code></a>)</p></li>
 </ol>
 
-<p>Introduction en FR</p>
+<p>Introduction en 🇫🇷</p>
 
 <ul>
 <li>Julien Barnier : <a href='https://juba.github.io/tidyverse/13-rmarkdown.html' title=''>https://juba.github.io/tidyverse/13-rmarkdown.html</a></li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>En-tête du document</h2></hgroup><article  id="en-tete-du-document">
+
+<pre class = 'prettyprint lang-yaml'>---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  ioslides_presentation:
+    widescreen: true
+    self_contained: false
+    logo: &quot;assets/meetuprnantes.jpeg&quot;
+    keep_md: true
+---</pre>
+
+<p>⚠️ ⚠️ <strong>Attention à l’indentation</strong> ⚠️ ⚠️</p>
 
 </article></slide><slide class="fill nobackground" style="background-image: url(assets/2rfogh.jpg); background-size: 45%; background-position: 50% 75%;"><hgroup><h2>Markdown : simple mais puissant</h2></hgroup><article  id="markdown-simple-mais-puissant">
 
@@ -228,9 +244,7 @@ from
 <p><span class="license">
 <a href='https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf' title=''>R Markdown Cheat Sheet</a> par <a href='https://www.rstudio.com/' title=''>RStudio</a>, licence <a href='https://creativecommons.org/licenses/by/4.0/' title=''>CC BY 4.0</a></span></p>
 
-<embed id="cheatsheet" src="assets/rmarkdown-2.0.pdf" type="application/pdf" width="100%" height="500px"/>
-
-</article></slide><slide class=""><hgroup><h2>Markdown : simple mais puissant</h2></hgroup><article  id="markdown-simple-mais-puissant-1">
+<embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/>
 
 </article></slide><slide class=""><hgroup><h2>Différents languages autorisés</h2></hgroup><article  id="differents-languages-autorises">
 
@@ -259,12 +273,12 @@ df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list(&#39;ABCD&#39;
 print(df)</pre>
 
 <pre >##                    A         B         C         D
-## 2013-01-01  0.764929 -0.857624 -1.483070  1.451230
-## 2013-01-02  0.459336  2.363289  1.729288 -0.318701
-## 2013-01-03  1.093356  1.846077 -1.209008  0.668399
-## 2013-01-04 -0.469401 -0.902958 -1.343912 -0.675403
-## 2013-01-05  0.721307  1.306399 -0.593882  0.022581
-## 2013-01-06 -0.503053 -1.295675 -2.572459 -0.535750</pre>
+## 2013-01-01 -1.276365 -0.933282 -0.372604  1.375677
+## 2013-01-02 -1.733682 -1.336669  0.746140 -0.043484
+## 2013-01-03  0.847932 -1.103912  0.392002 -0.334038
+## 2013-01-04 -0.317123 -0.490057  0.008945 -2.196099
+## 2013-01-05 -1.557857 -0.068387 -1.292196 -1.254921
+## 2013-01-06 -0.511724 -0.349377  0.979968 -0.794116</pre>
 
 </article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code></h2></hgroup><article  id="exemple-node.js">
 
