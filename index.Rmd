@@ -157,7 +157,7 @@ output:
 ---
 ```
 
-`r emo::ji('warning')` `r emo::ji('warning')` **Attention à l'indentation** `r emo::ji('warning')` `r emo::ji('warning')`
+[`r fontawesome::fa('exclamation-triangle', fill= "red")` **Attention à l'indentation**]{}
 
 ## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
 
