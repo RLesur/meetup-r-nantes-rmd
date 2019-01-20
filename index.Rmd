@@ -13,6 +13,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
 ```
 
 ```{css firstpagebg, echo=FALSE}
@@ -33,6 +34,34 @@ img[src*="Slack"] {
 .twitter svg {
   fill: #1da1f2;
 }
+.tenor-gif-embed {
+  float: right;
+}
+```
+
+```{r snoopy, echo=FALSE}
+snoopy <- tagList(
+  div(
+    style = "float:right;",
+    class = "tenor-gif-embed", 
+    `data-postid` = "7404986", 
+    `data-share-method` = "host", 
+    `data-width` = "40%", 
+    `data-aspect-ratio` = "1.7777777777777777",
+    tagList(
+      a(
+        href = "https://tenor.com/view/snoopy-dance-happy-emotion-response-gif-7404986",
+        "Snoopy Dance GIF"
+      ),
+      "from",
+      a(
+        href = "https://tenor.com/search/snoopy-gifs",
+        "Snoopy GIFs"
+      )
+    )
+  ),
+  tags$script(type = "text/javascript", src = "https://tenor.com/embed.js", async = "true")
+)
 ```
 
 - administrateur de l'Insee
@@ -41,10 +70,15 @@ img[src*="Slack"] {
   * occasionnel pendant 8 ans, plus intense depuis 2 ans
   * **fan absolu de R Markdown**
 
-- où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) `grrr` [frama.link/r-grrr](https://frama.link/r-grrr) : venez-nous rejoindre !
-  * `r fontawesome::fa('github')` [github.com/rlesur](https://github.com/RLesur) 
+- <div style="width:60%;">
+  où suis-je ?
+  * ![](assets/Slack_RGB-99x25.png) 🇫🇷 **grrr** `r snoopy`  
+    \
+    **Venez-nous rejoindre !**  
+    [frama.link/r-grrr](https://frama.link/r-grrr)  
+  * `r fontawesome::fa('github')` [github.com/rlesur](https://github.com/RLesur)  
   * [`r fontawesome::fa('twitter')`]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+  </div>
 
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
@@ -79,7 +113,7 @@ rmarkdown::pandoc_convert(
 srcdoc <- paste(readLines(tmp_files$html), collapse = "\n")
 
 div(class = "columns-2",
-  tag("embed", list(src= "simple.pdf", type="application/pdf", width="100%", height="500px")),
+  tags$embed(src= "simple.pdf", type="application/pdf", width="100%", height="500px"),
   div(
     tag("iframe", list(srcdoc = srcdoc, style = 'height:500px!important;'))
   )
@@ -89,6 +123,11 @@ div(class = "columns-2",
 ## Prise en main dans RStudio
 
 - RStudio : compagnon idéal 
+  * Menu `File > New File > R Markdown...`
+  * Conseil : désactiver le mode _notebook_   
+  `Tools > Global Options` `r htmltools::img(src= "assets/rstd.png", width = "300px", style='vertical-align:text-top;')`
+- si vous n'avez pas $\LaTeX$ d'installé, utilisez le package [`tinytex`](https://cran.r-project.org/package=tinytex)
+[_demo..._]{style="float:right;padding-top:40px;"}
 
 ## Concepts de base de R Markdown
 
@@ -96,15 +135,28 @@ div(class = "columns-2",
 
 - _Chunks_ : code dont le résulat sera inséré dans le document final
 
-- En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options...)
+- En-tête `YAML` : indications données au package `rmarkdown` (type de document souhaité, options, méta-données...)
 
 Introduction en 🇫🇷
 
 - Julien Barnier : https://juba.github.io/tidyverse/13-rmarkdown.html
 
+## R Markdown Cheat Sheet
+
+```{css, echo=FALSE}
+\#cheatsheet {
+content: "coucou";
+}
+```
 
 
-## R Markdown
+`r tags$embed(id="cheatsheet", src="assets/rmarkdown-2.0.pdf", type="application/pdf", width="100%", height="500px")`
+
+## Diapo Daphné
+
+## Markdown : simple mais puissant
+## R
+ Markdown
 
 This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
