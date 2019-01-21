@@ -369,7 +369,7 @@ conn <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
 **Se déconnecter :**  
 ````r
 `r ''````{r, echo=FALSE}
-DBI::dbDisconnect(con)
+DBI::dbDisconnect(conn)
 ```
 ````
 
@@ -393,10 +393,35 @@ DBI::dbDisconnect(conn)
 
 `r tags$embed(id="cheatsheet", src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf", width="100%", height="500px")`
 
+## Le fonctionnement de R Markdown
+
+Le package `rmarkdown` assure la bonne exécution des étapes suivantes :
+
+1. fichier `.Rmd` `r emo::ji('right_arrow')` fichier `.md` = `knitr` 
+  Exécution des chunks et insertion du résultat
+
+1. fichier `.md` `r emo::ji('right_arrow')` fichier `.html` ou `.tex`, `.docx`, `.odt`...
+  = **Pandoc**
+  
+Pour les pdf avec $\LaTeX$, étape supplémentaire :
+
+1. fichier `.tex` `r emo::ji('right_arrow')` fichier `.pdf` = $\LaTeX$ 
 
 ## Hacker R Markdown
 
-### Hacker le bouton `knit` de RStudio
+On peut aller très loin dans l'adaptation de R Markdown
+
+- Hacker RStudio
+
+- Hacker R Markdown
+
+- Hacker `knitr`
+
+- Hacker `pandoc`
+
+## Hacker RStudio
+
+_Exemple : Hacker le bouton `knit` de RStudio_
 
 Rajouter dans l'en-tête YAML du fichier `Rmd` une ligne qui renvoie une fonction $\lambda$ ayant pour arguments `(inputFile, encoding)`
 
@@ -408,4 +433,13 @@ Si en plus la fonction comprend `message("Output created: ", outputFile)`, le vi
 
 Voir <https://github.com/rstudio/rmarkdown/issues/277>
 
-- Hacker `knitr`
+## Hacker R Markdown
+
+On peut créer des nouveaux formats avec `rmarkdown::output_format()` :
+
+```{r results='asis'}
+output_format <- rmarkdown::output_format
+def <- capture.output(dump("output_format", ""))
+def[seq.int(grep("<-", def)[1] + 1, grep("\\{", def)[1] - 1)]
+```
+

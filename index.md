@@ -271,10 +271,10 @@ head(py$df, n = 2L)
 ````
 <div class="kable-table">
 
-                      A            B            C            D
------------  ----------  -----------  -----------  -----------
-2013-01-01    0.7396836   -1.5668969    0.1226400   -0.0731946
-2013-01-02    0.3353753    0.2313757   -0.5988074    0.6575396
+                      A            B           C            D
+-----------  ----------  -----------  ----------  -----------
+2013-01-01    -1.110006   -1.2051903   0.4109120   -0.1936139
+2013-01-02     1.085360   -0.3926347   0.0210844    0.4096116
 
 </div>
 
@@ -367,7 +367,7 @@ Table: 2 records
 **Se déconnecter :**  
 ````r
 ```{r, echo=FALSE}
-DBI::dbDisconnect(con)
+DBI::dbDisconnect(conn)
 ```
 ````
 
@@ -389,10 +389,35 @@ DBI::dbDisconnect(con)
 
 <!--html_preserve--><embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/><!--/html_preserve-->
 
+## Le fonctionnement de R Markdown
+
+Le package `rmarkdown` assure la bonne exécution des étapes suivantes :
+
+1. fichier `.Rmd` ➡️ fichier `.md` = `knitr` 
+  Exécution des chunks et insertion du résultat
+
+1. fichier `.md` ➡️ fichier `.html` ou `.tex`, `.docx`, `.odt`...
+  = **Pandoc**
+  
+Pour les pdf avec $\LaTeX$, étape supplémentaire :
+
+1. fichier `.tex` ➡️ fichier `.pdf` = $\LaTeX$ 
 
 ## Hacker R Markdown
 
-### Hacker le bouton `knit` de RStudio
+On peut aller très loin dans l'adaptation de R Markdown
+
+- Hacker RStudio
+
+- Hacker R Markdown
+
+- Hacker `knitr`
+
+- Hacker `pandoc`
+
+## Hacker RStudio
+
+_Exemple : Hacker le bouton `knit` de RStudio_
 
 Rajouter dans l'en-tête YAML du fichier `Rmd` une ligne qui renvoie une fonction $\lambda$ ayant pour arguments `(inputFile, encoding)`
 
@@ -404,4 +429,19 @@ Si en plus la fonction comprend `message("Output created: ", outputFile)`, le vi
 
 Voir <https://github.com/rstudio/rmarkdown/issues/277>
 
-- Hacker `knitr`
+## Hacker R Markdown
+
+On peut créer des nouveaux formats avec `rmarkdown::output_format()` :
+
+
+```r
+output_format <- rmarkdown::output_format
+def <- capture.output(dump("output_format", ""))
+def[seq.int(grep("<-", def)[1] + 1, grep("\\{", def)[1] - 1)]
+```
+
+[1] "function (knitr, pandoc, keep_md = FALSE, clean_supporting = TRUE, "           
+[2] "    df_print = NULL, pre_knit = NULL, post_knit = NULL, pre_processor = NULL, "
+[3] "    intermediates_generator = NULL, post_processor = NULL, on_exit = NULL, "   
+[4] "    base_format = NULL) "                                                      
+

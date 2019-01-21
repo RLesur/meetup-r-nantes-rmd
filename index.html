@@ -324,7 +324,7 @@ head(mtcars)
 ## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
 ## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code> avec le package <code>reticulate</code></h2></hgroup><article  class="smaller" id="exemple-python-avec-le-package-reticulate">
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code> avec le package <code>reticulate</code></h2></hgroup><article  id="exemple-python-avec-le-package-reticulate" class="smaller">
 
 <ol>
 <li><p>Initialisation de la configuration</p>
@@ -345,7 +345,7 @@ print(a)
 <pre >## 1</pre></li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Communication entre R et python</h2></hgroup><article  class="smaller" id="communication-entre-r-et-python">
+</article></slide><slide class=""><hgroup><h2>Communication entre R et python</h2></hgroup><article  id="communication-entre-r-et-python" class="smaller">
 
 <pre class = 'prettyprint lang-py'>```{python}
 import pandas as pd
@@ -370,21 +370,21 @@ head(py$df, n = 2L)
 </tr>
 <tr class="odd">
 <td align="left">2013-01-01</td>
-<td align="right">0.7396836</td>
-<td align="right">-1.5668969</td>
-<td align="right">0.1226400</td>
-<td align="right">-0.0731946</td>
+<td align="right">-1.110006</td>
+<td align="right">-1.2051903</td>
+<td align="right">0.4109120</td>
+<td align="right">-0.1936139</td>
 </tr>
 <tr class="even">
 <td align="left">2013-01-02</td>
-<td align="right">0.3353753</td>
-<td align="right">0.2313757</td>
-<td align="right">-0.5988074</td>
-<td align="right">0.6575396</td>
+<td align="right">1.085360</td>
+<td align="right">-0.3926347</td>
+<td align="right">0.0210844</td>
+<td align="right">0.4096116</td>
 </tr>
 </table></div>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code> avec un script externe</h2></hgroup><article  class="smaller" id="exemple-node.js-avec-un-script-externe">
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code> avec un script externe</h2></hgroup><article  id="exemple-node.js-avec-un-script-externe" class="smaller">
 
 <p>Vous voulez écrire un cours sur <code>node.js</code>.<br/>Vos scripts sont dans des fichiers <code>.js</code>.</p>
 
@@ -458,7 +458,7 @@ conn &lt;- DBI::dbConnect(RSQLite::SQLite(), path = &quot;:memory:&quot;)
 <p><strong>Se déconnecter :</strong></p>
 
 <pre class = 'prettyprint lang-r'>```{r, echo=FALSE}
-DBI::dbDisconnect(con)
+DBI::dbDisconnect(conn)
 ```</pre>
 
 </article></slide><slide class="fill nobackground" style="background-image: url(assets/2rfogh.jpg); background-size: 45%; background-position: 50% 75%;"><hgroup><h2>Markdown : simple mais puissant</h2></hgroup><article  id="markdown-simple-mais-puissant">
@@ -478,9 +478,35 @@ DBI::dbDisconnect(con)
 
 <embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/>
 
+</article></slide><slide class=""><hgroup><h2>Le fonctionnement de R Markdown</h2></hgroup><article  id="le-fonctionnement-de-r-markdown">
+
+<p>Le package <code>rmarkdown</code> assure la bonne exécution des étapes suivantes :</p>
+
+<ol>
+<li><p>fichier <code>.Rmd</code> ➡️ fichier <code>.md</code> = <code>knitr</code> Exécution des chunks et insertion du résultat</p></li>
+<li><p>fichier <code>.md</code> ➡️ fichier <code>.html</code> ou <code>.tex</code>, <code>.docx</code>, <code>.odt</code>… = <strong>Pandoc</strong></p></li>
+</ol>
+
+<p>Pour les pdf avec \(\LaTeX\), étape supplémentaire :</p>
+
+<ol>
+<li>fichier <code>.tex</code> ➡️ fichier <code>.pdf</code> = \(\LaTeX\)</li>
+</ol>
+
 </article></slide><slide class=""><hgroup><h2>Hacker R Markdown</h2></hgroup><article  id="hacker-r-markdown">
 
-<h3>Hacker le bouton <code>knit</code> de RStudio</h3>
+<p>On peut aller très loin dans l’adaptation de R Markdown</p>
+
+<ul>
+<li><p>Hacker RStudio</p></li>
+<li><p>Hacker R Markdown</p></li>
+<li><p>Hacker <code>knitr</code></p></li>
+<li><p>Hacker <code>pandoc</code></p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Hacker RStudio</h2></hgroup><article  id="hacker-rstudio">
+
+<p><em>Exemple : Hacker le bouton <code>knit</code> de RStudio</em></p>
 
 <p>Rajouter dans l’en-tête YAML du fichier <code>Rmd</code> une ligne qui renvoie une fonction \(\lambda\) ayant pour arguments <code>(inputFile, encoding)</code></p>
 
@@ -490,9 +516,15 @@ DBI::dbDisconnect(con)
 
 <p>Voir <a href='https://github.com/rstudio/rmarkdown/issues/277' title=''>https://github.com/rstudio/rmarkdown/issues/277</a></p>
 
-<ul>
-<li>Hacker <code>knitr</code></li>
-</ul></article></slide>
+</article></slide><slide class=""><hgroup><h2>Hacker R Markdown</h2></hgroup><article  id="hacker-r-markdown-1">
+
+<p>On peut créer des nouveaux formats avec <code>rmarkdown::output_format()</code> :</p>
+
+<pre class = 'prettyprint lang-r'>output_format &lt;- rmarkdown::output_format
+def &lt;- capture.output(dump(&quot;output_format&quot;, &quot;&quot;))
+def[seq.int(grep(&quot;&lt;-&quot;, def)[1] + 1, grep(&quot;\\{&quot;, def)[1] - 1)]</pre>
+
+<p>[1] &ldquo;function (knitr, pandoc, keep_md = FALSE, clean_supporting = TRUE,&rdquo;<br/>[2] &quot; df_print = NULL, pre_knit = NULL, post_knit = NULL, pre_processor = NULL, &quot; [3] &quot; intermediates_generator = NULL, post_processor = NULL, on_exit = NULL, &quot;<br/>[4] &quot; base_format = NULL) &quot;</p></article></slide>
 
 
   <slide class="backdrop"></slide>
