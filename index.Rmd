@@ -258,7 +258,7 @@ rmarkdown::render("monfichier.Rmd", params = list(annee = 2018, region = Europe)
     La moyenne est de `r '\x60r mean(mtcars$cyl)\x60'`.
     ````
 
-## Différents languages autorisés
+## Différents langages autorisés
 
 ```{r}
 names(knitr::knit_engines$get())

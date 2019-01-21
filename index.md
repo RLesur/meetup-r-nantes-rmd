@@ -214,7 +214,7 @@ rmarkdown::render("monfichier.Rmd", params = list(annee = 2018, region = Europe)
     La moyenne est de `r mean(mtcars$cyl)`.
     ````
 
-## Différents languages autorisés
+## Différents langages autorisés
 
 
 ```r
@@ -282,10 +282,10 @@ head(py$df, n = 2L)
 ````
 <div class="kable-table">
 
-                      A           B            C          D
------------  ----------  ----------  -----------  ---------
-2013-01-01    0.3181814   -0.345717   -0.7561655   2.000230
-2013-01-02    0.6643226   -1.276280    1.2297365   1.429633
+                       A            B           C            D
+-----------  -----------  -----------  ----------  -----------
+2013-01-01    -0.4552212    0.2195900   0.4331404   -1.0339391
+2013-01-02     2.5373213   -0.2292694   1.0202915   -0.6444326
 
 </div>
 
