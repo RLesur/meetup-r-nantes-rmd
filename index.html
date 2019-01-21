@@ -230,22 +230,86 @@ output:
 <p><span>
 <svg style="height:0.8em;top:.04em;position:relative;fill:red;" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg> <strong>Attention à l’indentation</strong></span></p>
 
-</article></slide><slide class="fill nobackground" style="background-image: url(assets/2rfogh.jpg); background-size: 45%; background-position: 50% 75%;"><hgroup><h2>Markdown : simple mais puissant</h2></hgroup><article  id="markdown-simple-mais-puissant">
+</article></slide><slide class=""><hgroup><h2>Multipliez les format de sortie</h2></hgroup><article  id="multipliez-les-format-de-sortie">
 
-</article></slide><slide class=""><hgroup><h2>R Markdown Cheat Sheet</h2></hgroup><article  id="r-markdown-cheat-sheet">
+<p>Avec <code>output</code>, vous pouvez produire plusieurs formats à partir du même fichier source :</p>
 
-<style type="text/css">
-.license {
-  font-size: 70%;
-  position: absolute;
-  top: 100px;
-}
-</style>
+<pre class = 'prettyprint lang-yaml'>---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  html_document: default
+  pdf_document: default
+---</pre>
 
-<p><span class="license">
-<a href='https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf' title=''>R Markdown Cheat Sheet</a> par <a href='https://www.rstudio.com/' title=''>RStudio</a>, licence <a href='https://creativecommons.org/licenses/by/4.0/' title=''>CC BY 4.0</a></span></p>
+<p>Exécuter dans la console :</p>
 
-<embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/>
+<pre class = 'prettyprint lang-r'>rmarkdown::render(&quot;monfichier.Rmd&quot;, output_format = &quot;all&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Type de documents</h2></hgroup><article  id="type-de-documents">
+
+<p>Vous pouvez produire :</p>
+
+<ul>
+<li>des documents HTML</li>
+<li>des documents paginés (articles, livres, thèses) : pdf avec \(\LaTeX\), docx, odt…</li>
+<li>des présentations : HTML et pptx</li>
+<li>des tableaux de bord</li>
+<li>des cours et sujets d’examens</li>
+<li>des sites internet statiques</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Modèles prêts à l’emploi</h2></hgroup><article  id="modeles-prets-a-lemploi">
+
+<p>De nombreux packages fournissent des modèles prêts à l’emploi : <code>rmarkdown</code>, <code>flexdashboard</code>, <code>hrbrthemes</code>, <code>komadown</code>, <code>komaletter</code>, <code>learnr</code>, <code>linl</code>, <code>memor</code>, <code>pinp</code>, <code>prettydoc</code>, <code>radix</code>, <code>revealjs</code>, <code>rmdformats</code>, <code>rmdshower</code>, <code>rticles</code>, <code>tufte</code>, <a href='https://koncina.github.io/unilur/' title=''><code>unilur</code></a>, <code>vitae</code>, <code>xaringan</code>…</p>
+
+<p>Pour les livres et thèses : <code>bookdown</code></p>
+
+<p>Pour les sites web : <code>blogdown</code></p>
+
+</article></slide><slide class=""><hgroup><h2>Des packages pour aider sur des taches spécifiques</h2></hgroup><article  id="des-packages-pour-aider-sur-des-taches-specifiques">
+
+<p>Tout un écosystème de packages pour aider :</p>
+
+<ul>
+<li>l’incroyable <code>officer</code> de David Gohel pour MS Office</li>
+<li><code>tinytex</code> pour installer facilement \(\LaTeX\)</li>
+<li>pour les tableaux : <code>flextable</code> (David Gohel), <code>kableExtra</code>, <code>gt</code>…</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Des documents paramétrés</h2></hgroup><article  id="des-documents-parametres">
+
+<p>A partir du même fichier R Markdown, produire des rapports sur différentes zones géographiques, différentes périodes…</p>
+
+<pre class = 'prettyprint lang-yaml'>---
+title: My Document
+output: html_document
+params:
+  annee: 2018
+  region: Europe
+---</pre>
+
+<p>Disponible depuis le bouton <code>Knit</code> de RStudio ou</p>
+
+<pre class = 'prettyprint lang-r'>rmarkdown::render(&quot;monfichier.Rmd&quot;, params = list(annee = 2018, region = Europe))</pre>
+
+</article></slide><slide class="fill nobackground" style="background-image: url(assets/2rg8dc.jpg); background-size: 35%; background-position: 50% 75%;"><hgroup><h2><code>knitr</code> chunks</h2></hgroup><article  id="knitr-chunks">
+
+</article></slide><slide class=""><hgroup><h2>Deux façons d’insérer du code dans son document</h2></hgroup><article  id="deux-facons-dinserer-du-code-dans-son-document">
+
+<ol>
+<li><p>Code chunk</p>
+
+<pre class = 'prettyprint lang-r'>```{r, eval=TRUE, echo=FALSE}
+head(mtcars)
+```</pre>
+
+<p>De nombreuses options ! <a href='https://yihui.name/knitr/options/' title=''>yihui.name/knitr/options</a></p></li>
+<li><p>Inline code</p>
+
+<pre class = 'prettyprint lang-markdown'>La moyenne est de `r mean(mtcars$cyl)`.</pre></li>
+</ol>
 
 </article></slide><slide class=""><hgroup><h2>Différents languages autorisés</h2></hgroup><article  id="differents-languages-autorises">
 
@@ -260,41 +324,95 @@ output:
 ## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
 ## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code></h2></hgroup><article  id="exemple-python">
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code> avec le package <code>reticulate</code></h2></hgroup><article  class="smaller" id="exemple-python-avec-le-package-reticulate">
 
-<pre class = 'prettyprint lang-python'>a = 1 + 2
-print(a)</pre>
+<ol>
+<li><p>Initialisation de la configuration</p>
 
-<pre >## 3</pre>
+<pre class = 'prettyprint lang-r'>```{r, include=FALSE}
+library(reticulate)
+use_python(&quot;usr/local/bin/python&quot;)
+use_virtualenv(&quot;r-reticulate&quot;)
+py_install(c(&quot;pandas&quot;, &quot;numpy&quot;))
+```</pre></li>
+<li><p>Script python</p>
 
-<pre class = 'prettyprint lang-python'>import pandas as pd
+<pre class = 'prettyprint lang-py'>```{python}
+a = 1
+print(a)
+```</pre>
+
+<pre >## 1</pre></li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>Communication entre R et python</h2></hgroup><article  class="smaller" id="communication-entre-r-et-python">
+
+<pre class = 'prettyprint lang-py'>```{python}
+import pandas as pd
 import numpy as np
+
 dates = pd.date_range(&#39;20130101&#39;, periods=6)
 df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list(&#39;ABCD&#39;))
-print(df)</pre>
+```</pre>
 
-<pre >##                    A         B         C         D
-## 2013-01-01  0.023467  0.477117 -0.824901 -0.524723
-## 2013-01-02  1.005753 -1.438313 -2.132451 -0.712502
-## 2013-01-03 -1.141109  1.512085 -0.439634 -1.238172
-## 2013-01-04 -0.771910  0.275490  0.129597  0.330460
-## 2013-01-05 -0.681153  1.624952 -0.401471  0.073791
-## 2013-01-06  0.768388  1.317607  1.018291 -0.791468</pre>
+<pre class = 'prettyprint lang-r'>```{r}
+head(py$df, n = 2L)
+```</pre>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code></h2></hgroup><article  id="exemple-node.js">
+<div class="kable-table">
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left"></th>
+<th align="right">A</th>
+<th align="right">B</th>
+<th align="right">C</th>
+<th align="right">D</th>
+</tr>
+<tr class="odd">
+<td align="left">2013-01-01</td>
+<td align="right">0.7396836</td>
+<td align="right">-1.5668969</td>
+<td align="right">0.1226400</td>
+<td align="right">-0.0731946</td>
+</tr>
+<tr class="even">
+<td align="left">2013-01-02</td>
+<td align="right">0.3353753</td>
+<td align="right">0.2313757</td>
+<td align="right">-0.5988074</td>
+<td align="right">0.6575396</td>
+</tr>
+</table></div>
+
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code> avec un script externe</h2></hgroup><article  class="smaller" id="exemple-node.js-avec-un-script-externe">
+
+<p>Vous voulez écrire un cours sur <code>node.js</code>.<br/>Vos scripts sont dans des fichiers <code>.js</code>.</p>
+
+<p>Vous pouvez écrire :</p>
+
+<pre class = 'prettyprint lang-markdown'>```{node, code=readLines(&#39;node/example.js&#39;)}
+```</pre>
 
 <pre class = 'prettyprint lang-javascript'>const hi = (name) =&gt; {
   console.log(&quot;Hello &quot; + name + &quot;!&quot;);
-}
+};
 
 hi(&quot;Bob&quot;);</pre>
 
 <pre >## Hello Bob!</pre>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>SQL</code></h2></hgroup><article  id="exemple-sql">
+<p>Voir le repo source : <a href='https://github.com/RLesur/meetup-r-nantes-rmd' title=''>https://github.com/RLesur/meetup-r-nantes-rmd</a></p>
 
-<pre class = 'prettyprint lang-r'>con &lt;- DBI::dbConnect(RSQLite::SQLite(), path = &quot;:memory:&quot;)
-DBI::dbWriteTable(con, &quot;mtcars&quot;, mtcars)</pre>
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>SQL</code> avec scripts externes</h2></hgroup><article  id="exemple-sql-avec-scripts-externes">
+
+<p><strong>Etape 1 : connexion à la base de données</strong></p>
+
+<pre class = 'prettyprint lang-r'>```{r, include=FALSE}
+conn &lt;- DBI::dbConnect(RSQLite::SQLite(), path = &quot;:memory:&quot;)
+```</pre>
+
+<pre class = 'prettyprint lang-markdown'>```{sql, connection=conn, code=readLines(&#39;sql/list_tables.sql&#39;)}
+```</pre>
 
 <pre class = 'prettyprint lang-sql'>SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;</pre>
 
@@ -311,37 +429,54 @@ DBI::dbWriteTable(con, &quot;mtcars&quot;, mtcars)</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
+<pre class = 'prettyprint lang-markdown'>```{sql, connection=conn, code=readLines(&#39;sql/data.sql&#39;)}
+```</pre>
+
 <pre class = 'prettyprint lang-sql'>SELECT mpg, cyl, disp FROM mtcars
-       LIMIT 3;</pre>
+       LIMIT 2;</pre>
 
 <div class="knitsql-table">
 <table class = 'rmdtable'>
-<caption>3 records</caption>
+<caption>2 records</caption>
 <tr class="header">
 <th align="right">mpg</th>
 <th align="right">cyl</th>
 <th align="right">disp</th>
 </tr>
 <tr class="odd">
-<td align="right">21.0</td>
+<td align="right">21</td>
 <td align="right">6</td>
 <td align="right">160</td>
 </tr>
 <tr class="even">
-<td align="right">21.0</td>
+<td align="right">21</td>
 <td align="right">6</td>
 <td align="right">160</td>
-</tr>
-<tr class="odd">
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">108</td>
 </tr>
 </table></div>
 
 <p><strong>Se déconnecter :</strong></p>
 
-<pre class = 'prettyprint lang-r'>DBI::dbDisconnect(con)</pre>
+<pre class = 'prettyprint lang-r'>```{r, echo=FALSE}
+DBI::dbDisconnect(con)
+```</pre>
+
+</article></slide><slide class="fill nobackground" style="background-image: url(assets/2rfogh.jpg); background-size: 45%; background-position: 50% 75%;"><hgroup><h2>Markdown : simple mais puissant</h2></hgroup><article  id="markdown-simple-mais-puissant">
+
+</article></slide><slide class=""><hgroup><h2>R Markdown Cheat Sheet</h2></hgroup><article  id="r-markdown-cheat-sheet">
+
+<style type="text/css">
+.license {
+  font-size: 70%;
+  position: absolute;
+  top: 100px;
+}
+</style>
+
+<p><span class="license">
+<a href='https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf' title=''>R Markdown Cheat Sheet</a> par <a href='https://www.rstudio.com/' title=''>RStudio</a>, licence <a href='https://creativecommons.org/licenses/by/4.0/' title=''>CC BY 4.0</a></span></p>
+
+<embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/>
 
 </article></slide><slide class=""><hgroup><h2>Hacker R Markdown</h2></hgroup><article  id="hacker-r-markdown">
 

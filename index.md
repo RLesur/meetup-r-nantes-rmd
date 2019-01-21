@@ -4,8 +4,9 @@ title: |
 pagetitle: Créez vos documents avec R Markdown
 author: Romain Lesur
 date: 21 janvier 2019
-output: 
+output:
   ioslides_presentation:
+    df_print: kable
     widescreen: true
     self_contained: false
     logo: "assets/meetuprnantes.jpeg"
@@ -114,23 +115,93 @@ output:
 
 [<svg style="height:0.8em;top:.04em;position:relative;fill:red;" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg> **Attention à l'indentation**]{}
 
-## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
+## Multipliez les format de sortie
 
+Avec `output`, vous pouvez produire plusieurs formats à partir du même fichier source : 
 
+```yaml
+---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  html_document: default
+  pdf_document: default
+---
+```
 
-## R Markdown Cheat Sheet
+Exécuter dans la console :
 
-<style type="text/css">
-.license {
-  font-size: 70%;
-  position: absolute;
-  top: 100px;
-}
-</style>
+```r
+rmarkdown::render("monfichier.Rmd", output_format = "all")
+```
 
-[[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
+## Type de documents
 
-<!--html_preserve--><embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/><!--/html_preserve-->
+Vous pouvez produire :
+
+- des documents HTML
+- des documents paginés (articles, livres, thèses) : pdf avec $\LaTeX$, docx, odt...
+- des présentations : HTML et pptx
+- des tableaux de bord
+- des cours et sujets d'examens
+- des sites internet statiques
+
+## Modèles prêts à l'emploi
+
+De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
+
+Pour les livres et thèses : `bookdown`
+
+Pour les sites web : `blogdown`
+
+## Des packages pour aider sur des taches spécifiques
+
+Tout un écosystème de packages pour aider : 
+
+- l'incroyable `officer` de David Gohel pour MS Office
+- `tinytex` pour installer facilement $\LaTeX$
+- pour les tableaux : `flextable` (David Gohel), `kableExtra`, `gt`...
+
+## Des documents paramétrés
+
+A partir du même fichier R Markdown, produire des rapports sur différentes zones géographiques, différentes périodes...
+
+```yaml
+---
+title: My Document
+output: html_document
+params:
+  annee: 2018
+  region: Europe
+---
+```
+
+Disponible depuis le bouton `Knit` de RStudio ou
+
+```r
+rmarkdown::render("monfichier.Rmd", params = list(annee = 2018, region = Europe))
+```
+
+## `knitr` chunks {data-background="assets/2rg8dc.jpg" data-background-position="50% 75%" data-background-size="35%"}
+
+## Deux façons d'insérer du code dans son document
+
+1. Code chunk  
+
+    ````r
+    ```{r, eval=TRUE, echo=FALSE}
+    head(mtcars)
+    ```
+    ````
+    
+    De nombreuses options ! [yihui.name/knitr/options](https://yihui.name/knitr/options/)
+    
+1. Inline code 
+
+    ````markdown
+    La moyenne est de `r mean(mtcars$cyl)`.
+    ````
 
 ## Différents languages autorisés
 
@@ -150,48 +221,80 @@ names(knitr::knit_engines$get())
 ## [36] "sql"       "go"        "python"    "julia"
 ```
 
-## Exemple : `python`
+## Exemple : `python` avec le package `reticulate` {.smaller}
 
 
 
-```python
-a = 1 + 2
-print(a)
-```
+1. Initialisation de la configuration
 
-```
-## 3
-```
+    ````r
+    ```{r, include=FALSE}
+    library(reticulate)
+    use_python("usr/local/bin/python")
+    use_virtualenv("r-reticulate")
+    py_install(c("pandas", "numpy"))
+    ```
+    ````
+
+1. Script python
+
+    ````py
+    ```{python}
+    a = 1
+    print(a)
+    ```
+    ````
+
+    
+    ```
+    ## 1
+    ```
+
+## Communication entre R et python {.smaller}
 
 
 
-
-```python
+````py
+```{python}
 import pandas as pd
 import numpy as np
+
 dates = pd.date_range('20130101', periods=6)
 df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
-print(df)
 ```
+````
 
+````r
+```{r}
+head(py$df, n = 2L)
 ```
-##                    A         B         C         D
-## 2013-01-01  0.023467  0.477117 -0.824901 -0.524723
-## 2013-01-02  1.005753 -1.438313 -2.132451 -0.712502
-## 2013-01-03 -1.141109  1.512085 -0.439634 -1.238172
-## 2013-01-04 -0.771910  0.275490  0.129597  0.330460
-## 2013-01-05 -0.681153  1.624952 -0.401471  0.073791
-## 2013-01-06  0.768388  1.317607  1.018291 -0.791468
+````
+<div class="kable-table">
+
+                      A            B            C            D
+-----------  ----------  -----------  -----------  -----------
+2013-01-01    0.7396836   -1.5668969    0.1226400   -0.0731946
+2013-01-02    0.3353753    0.2313757   -0.5988074    0.6575396
+
+</div>
+
+## Exemple : `node.js` avec un script externe {.smaller}
+
+Vous voulez écrire un cours sur `node.js`.  
+Vos scripts sont dans des fichiers `.js`.
+
+Vous pouvez écrire :
+
+````markdown
+```{node, code=readLines('node/example.js')}
 ```
-
-
-## Exemple : `node.js`
+````
 
 
 ```javascript
 const hi = (name) => {
   console.log("Hello " + name + "!");
-}
+};
 
 hi("Bob");
 ```
@@ -200,13 +303,23 @@ hi("Bob");
 ## Hello Bob!
 ```
 
-## Exemple : `SQL`
+Voir le repo source : <https://github.com/RLesur/meetup-r-nantes-rmd>
+
+## Exemple : `SQL` avec scripts externes
 
 
-```r
-con <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
-DBI::dbWriteTable(con, "mtcars", mtcars)
+
+**Etape 1 : connexion à la base de données**  
+````r
+```{r, include=FALSE}
+conn <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
 ```
+````
+
+````markdown
+```{sql, connection=conn, code=readLines('sql/list_tables.sql')}
+```
+````
 
 
 ```sql
@@ -227,32 +340,54 @@ Table: 1 records
 
 ---
 
+````markdown
+```{sql, connection=conn, code=readLines('sql/data.sql')}
+```
+````
+
 
 ```sql
 SELECT mpg, cyl, disp FROM mtcars
-       LIMIT 3;
+       LIMIT 2;
 ```
 
 
 <div class="knitsql-table">
 
 
-Table: 3 records
+Table: 2 records
 
-  mpg   cyl   disp
------  ----  -----
- 21.0     6    160
- 21.0     6    160
- 22.8     4    108
+ mpg   cyl   disp
+----  ----  -----
+  21     6    160
+  21     6    160
 
 </div>
 
-**Se déconnecter :**
-
-
-```r
+**Se déconnecter :**  
+````r
+```{r, echo=FALSE}
 DBI::dbDisconnect(con)
 ```
+````
+
+
+
+## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
+
+## R Markdown Cheat Sheet
+
+<style type="text/css">
+.license {
+  font-size: 70%;
+  position: absolute;
+  top: 100px;
+}
+</style>
+
+[[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
+
+<!--html_preserve--><embed id="cheatsheet" src="https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" width="100%" height="500px"/><!--/html_preserve-->
 
 
 ## Hacker R Markdown
