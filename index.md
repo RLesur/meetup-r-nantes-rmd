@@ -2,7 +2,8 @@
 title: |
   Créez vos documents avec [![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}](https://bookdown.org/yihui/rmarkdown/)
 pagetitle: Créez vos documents avec R Markdown
-author: Romain Lesur
+author: |
+  **Romain Lesur**
 date: 21 janvier 2019
 output:
   ioslides_presentation:
@@ -34,7 +35,8 @@ img[src*="Slack"] {
   fill: #1da1f2;
 }
 .tenor-gif-embed {
-  float: right;
+  display: inline-block;
+  vertical-align: middle;
 }
 </style>
 
@@ -46,20 +48,29 @@ img[src*="Slack"] {
   * occasionnel pendant 8 ans, plus intense depuis 2 ans
   * **fan absolu de R Markdown**
 
-- <div style="width:60%;">
-  où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) 🇫🇷 **grrr** <!--html_preserve--><div style="float:right;" class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
+- où suis-je ?
+  <div style="width:100%;">
+  <div style="display:inline-block;margin-right:20px;">
+  ![](assets/Slack_RGB-99x25.png) 🇫🇷 **grrr**  
+  **Rejoignez-nous !**  
+  [frama.link/r-grrr](https://frama.link/r-grrr)
+  </div>
+  <!--html_preserve--><div class="tenor-gif-embed" data-postid="7404986" data-share-method="host" data-width="40%" data-aspect-ratio="1.7777777777777777">
 <a href="https://tenor.com/view/snoopy-dance-happy-emotion-response-gif-7404986">Snoopy Dance GIF</a>
 from
 <a href="https://tenor.com/search/snoopy-gifs">Snoopy GIFs</a>
 </div>
-<script type="text/javascript" src="https://tenor.com/embed.js" async="true"></script><!--/html_preserve-->  
-    \
-    **Venez-nous rejoindre !**  
-    [frama.link/r-grrr](https://frama.link/r-grrr)  
-  * <svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [github.com/rlesur](https://github.com/RLesur)  
-  * [<svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+<script type="text/javascript" src="https://tenor.com/embed.js" async="true"></script><!--/html_preserve-->
+  <div style="display:inline-block;margin-left:20px;">
+  
+  [<svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>]{} [github.com/rlesur](https://github.com/RLesur)  
+  
+  [<svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+  
   </div>
+  </div>
+
+  
 
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
@@ -149,7 +160,7 @@ Vous pouvez produire :
 
 ## Modèles prêts à l'emploi
 
-De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
+De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, [`papaja`](https://github.com/crsh/papaja), `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
 
 Pour les livres et thèses : `bookdown`
 
@@ -271,10 +282,10 @@ head(py$df, n = 2L)
 ````
 <div class="kable-table">
 
-                      A            B           C            D
------------  ----------  -----------  ----------  -----------
-2013-01-01    -1.110006   -1.2051903   0.4109120   -0.1936139
-2013-01-02     1.085360   -0.3926347   0.0210844    0.4096116
+                       A            B            C           D
+-----------  -----------  -----------  -----------  ----------
+2013-01-01     0.5372107   -0.5501572   -0.7906921   0.3934037
+2013-01-02    -2.0689903    0.6921055    0.3600960   1.1595852
 
 </div>
 
@@ -373,7 +384,14 @@ DBI::dbDisconnect(conn)
 
 
 
-## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
+## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="10% 75%" data-background-size="45%"}
+
+<div style="padding-left:55%;">
+**Lisez la documentation de Pandoc au moins une fois !**
+
+**[pandoc.org/MANUAL#pandocs-markdown](https://pandoc.org/MANUAL#pandocs-markdown)**
+
+</div>
 
 ## R Markdown Cheat Sheet
 
@@ -393,15 +411,14 @@ DBI::dbDisconnect(conn)
 
 Le package `rmarkdown` assure la bonne exécution des étapes suivantes :
 
-1. fichier `.Rmd` ➡️ fichier `.md` = `knitr` 
+- fichier `.Rmd` ➡️ fichier `.md` = `knitr`  
   Exécution des chunks et insertion du résultat
 
-1. fichier `.md` ➡️ fichier `.html` ou `.tex`, `.docx`, `.odt`...
-  = **Pandoc**
+- fichier `.md` ➡️ fichier `.html` ou `.tex`, `.docx`, `.odt`... = **Pandoc**
   
 Pour les pdf avec $\LaTeX$, étape supplémentaire :
 
-1. fichier `.tex` ➡️ fichier `.pdf` = $\LaTeX$ 
+- fichier `.tex` ➡️ fichier `.pdf` = $\LaTeX$ 
 
 ## Hacker R Markdown
 
@@ -433,15 +450,56 @@ Voir <https://github.com/rstudio/rmarkdown/issues/277>
 
 On peut créer des nouveaux formats avec `rmarkdown::output_format()` :
 
-
 ```r
-output_format <- rmarkdown::output_format
-def <- capture.output(dump("output_format", ""))
-def[seq.int(grep("<-", def)[1] + 1, grep("\\{", def)[1] - 1)]
+function (knitr, pandoc, keep_md = FALSE, clean_supporting = TRUE, 
+    df_print = NULL, pre_knit = NULL, post_knit = NULL, pre_processor = NULL, 
+    intermediates_generator = NULL, post_processor = NULL, on_exit = NULL, 
+    base_format = NULL) 
 ```
 
-[1] "function (knitr, pandoc, keep_md = FALSE, clean_supporting = TRUE, "           
-[2] "    df_print = NULL, pre_knit = NULL, post_knit = NULL, pre_processor = NULL, "
-[3] "    intermediates_generator = NULL, post_processor = NULL, on_exit = NULL, "   
-[4] "    base_format = NULL) "                                                      
+- `knitr` et `pandoc` : options passées à `knitr` et `pandoc`
+
+- `pre_knit`, `post_knit`, `pre_processor`, `intermediates_generator`, `post_processor` et `on_exit` : des fonctions appelées à chaque étape de la génération du document
+
+## Hacker `knitr` {.smaller}
+
+Des dizaines d'options...  
+**Exemple : _hooks_** 
+
+`` `r pi` `` donne par défaut :  3.1415927.  
+Mais on voudrait avoir des `,` à la place des `.`
+
+Avec le _hook_ suivant, on peut modifier le comportement des _inlines codes_ :
+
+
+```r
+default_hook <- knitr::knit_hooks$get()$inline
+knitr::knit_hooks$set(inline = function(x) {
+  default_text <- default_hook(x)
+  if (!is.numeric(x))
+    return(default_text)
+  gsub("\\.", ",", default_text)
+})
+```
+
+Et maintenant `` `r pi` `` donne 3,1415927.
+
+## Hacker `pandoc`
+
+Lorsque `pandoc` transforme un document d'un format vers un autre, il passe par une représentation sous forme arbre syntaxique abstrait (qu'on peut sérialiser en JSON, par ex.).  
+On peut modifier cet AST grâce à des filtres, voir <https://pandoc.org/filters.html>.
+
+Langages acceptés : tous (!)  
+`lua` privilégié depuis pandoc 2
+
+Egalement la possibilité de développer son propre sérialiseur : <https://pandoc.org/MANUAL.html#custom-writers>
+
+## Références
+
+Xie, Y., J.J. Allaire et G. Grolemund _R Markdown: The Definitive Guide_ <https://bookdown.org/yihui/rmarkdown/>
+
+Xie, Y. _`knitr` Elegant, flexible, and fast dynamic report generation with R_ <https://yihui.name/knitr/>
+
+En cours de rédaction :  
+Harper M. et Y. Xie _R Markdown Cookbook_ <https://dr-harper.github.io/rmarkdown-cookbook/>
 

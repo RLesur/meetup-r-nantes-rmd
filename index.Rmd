@@ -2,7 +2,8 @@
 title: |
   Créez vos documents avec [![R Markdown](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png){width=100 style="vertical-align: middle;"}](https://bookdown.org/yihui/rmarkdown/)
 pagetitle: Créez vos documents avec R Markdown
-author: Romain Lesur
+author: |
+  **Romain Lesur**
 date: 21 janvier 2019
 output:
   ioslides_presentation:
@@ -37,14 +38,14 @@ img[src*="Slack"] {
   fill: #1da1f2;
 }
 .tenor-gif-embed {
-  float: right;
+  display: inline-block;
+  vertical-align: middle;
 }
 ```
 
 ```{r snoopy, echo=FALSE}
 snoopy <- tagList(
   div(
-    style = "float:right;",
     class = "tenor-gif-embed", 
     `data-postid` = "7404986", 
     `data-share-method` = "host", 
@@ -72,15 +73,24 @@ snoopy <- tagList(
   * occasionnel pendant 8 ans, plus intense depuis 2 ans
   * **fan absolu de R Markdown**
 
-- <div style="width:60%;">
-  où suis-je ?
-  * ![](assets/Slack_RGB-99x25.png) `r emo::ji('fr')` **grrr** `r snoopy`  
-    \
-    **Venez-nous rejoindre !**  
-    [frama.link/r-grrr](https://frama.link/r-grrr)  
-  * `r fontawesome::fa('github')` [github.com/rlesur](https://github.com/RLesur)  
-  * [`r fontawesome::fa('twitter')`]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+- où suis-je ?
+  <div style="width:100%;">
+  <div style="display:inline-block;margin-right:20px;">
+  ![](assets/Slack_RGB-99x25.png) `r emo::ji('fr')` **grrr**  
+  **Rejoignez-nous !**  
+  [frama.link/r-grrr](https://frama.link/r-grrr)
   </div>
+  `r snoopy`
+  <div style="display:inline-block;margin-left:20px;">
+  
+  [`r fontawesome::fa('github')`]{} [github.com/rlesur](https://github.com/RLesur)  
+  
+  [`r fontawesome::fa('twitter')`]{.twitter} [\@RLesur](https://twitter.com/RLesur)
+  
+  </div>
+  </div>
+
+  
 
 ## Pourquoi utiliser R Markdown ? {data-background=assets/2riz84.jpg data-background-position="50% 75%" data-background-size=70%}
 
@@ -194,7 +204,7 @@ Vous pouvez produire :
 
 ## Modèles prêts à l'emploi
 
-De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
+De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, [`papaja`](https://github.com/crsh/papaja), `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
 
 Pour les livres et thèses : `bookdown`
 
@@ -377,7 +387,14 @@ DBI::dbDisconnect(conn)
 DBI::dbDisconnect(conn)
 ```
 
-## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
+## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="10% 75%" data-background-size="45%"}
+
+<div style="padding-left:55%;">
+**Lisez la documentation de Pandoc au moins une fois !**
+
+**[pandoc.org/MANUAL#pandocs-markdown](https://pandoc.org/MANUAL#pandocs-markdown)**
+
+</div>
 
 ## R Markdown Cheat Sheet
 
@@ -397,15 +414,14 @@ DBI::dbDisconnect(conn)
 
 Le package `rmarkdown` assure la bonne exécution des étapes suivantes :
 
-1. fichier `.Rmd` `r emo::ji('right_arrow')` fichier `.md` = `knitr` 
+- fichier `.Rmd` `r emo::ji('right_arrow')` fichier `.md` = `knitr`  
   Exécution des chunks et insertion du résultat
 
-1. fichier `.md` `r emo::ji('right_arrow')` fichier `.html` ou `.tex`, `.docx`, `.odt`...
-  = **Pandoc**
+- fichier `.md` `r emo::ji('right_arrow')` fichier `.html` ou `.tex`, `.docx`, `.odt`... = **Pandoc**
   
 Pour les pdf avec $\LaTeX$, étape supplémentaire :
 
-1. fichier `.tex` `r emo::ji('right_arrow')` fichier `.pdf` = $\LaTeX$ 
+- fichier `.tex` `r emo::ji('right_arrow')` fichier `.pdf` = $\LaTeX$ 
 
 ## Hacker R Markdown
 
@@ -437,9 +453,62 @@ Voir <https://github.com/rstudio/rmarkdown/issues/277>
 
 On peut créer des nouveaux formats avec `rmarkdown::output_format()` :
 
-```{r results='asis'}
+```{r, echo=FALSE}
 output_format <- rmarkdown::output_format
 def <- capture.output(dump("output_format", ""))
-def[seq.int(grep("<-", def)[1] + 1, grep("\\{", def)[1] - 1)]
+knitr::asis_output(
+  paste0(collapse = '\n',
+    c('```r',
+      def[seq.int(grep("<-", def)[1] + 1, grep("\\{", def)[1] - 1)],
+      '```',
+      ''
+    )
+  )
+)
 ```
+
+- `knitr` et `pandoc` : options passées à `knitr` et `pandoc`
+
+- `pre_knit`, `post_knit`, `pre_processor`, `intermediates_generator`, `post_processor` et `on_exit` : des fonctions appelées à chaque étape de la génération du document
+
+## Hacker `knitr` {.smaller}
+
+Des dizaines d'options...  
+**Exemple : _hooks_** 
+
+`` `r '\x60r pi\x60'` `` donne par défaut :  `r pi`.  
+Mais on voudrait avoir des `,` à la place des `.`
+
+Avec le _hook_ suivant, on peut modifier le comportement des _inlines codes_ :
+
+```{r}
+default_hook <- knitr::knit_hooks$get()$inline
+knitr::knit_hooks$set(inline = function(x) {
+  default_text <- default_hook(x)
+  if (!is.numeric(x))
+    return(default_text)
+  gsub("\\.", ",", default_text)
+})
+```
+
+Et maintenant `` `r '\x60r pi\x60'` `` donne `r pi`.
+
+## Hacker `pandoc`
+
+Lorsque `pandoc` transforme un document d'un format vers un autre, il passe par une représentation sous forme arbre syntaxique abstrait (qu'on peut sérialiser en JSON, par ex.).  
+On peut modifier cet AST grâce à des filtres, voir <https://pandoc.org/filters.html>.
+
+Langages acceptés : tous (!)  
+`lua` privilégié depuis pandoc 2
+
+Egalement la possibilité de développer son propre sérialiseur : <https://pandoc.org/MANUAL.html#custom-writers>
+
+## Références
+
+Xie, Y., J.J. Allaire et G. Grolemund _R Markdown: The Definitive Guide_ <https://bookdown.org/yihui/rmarkdown/>
+
+Xie, Y. _`knitr` Elegant, flexible, and fast dynamic report generation with R_ <https://yihui.name/knitr/>
+
+En cours de rédaction :  
+Harper M. et Y. Xie _R Markdown Cookbook_ <https://dr-harper.github.io/rmarkdown-cookbook/>
 
