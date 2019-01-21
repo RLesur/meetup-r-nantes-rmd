@@ -4,8 +4,9 @@ title: |
 pagetitle: Créez vos documents avec R Markdown
 author: Romain Lesur
 date: 21 janvier 2019
-output: 
+output:
   ioslides_presentation:
+    df_print: kable
     widescreen: true
     self_contained: false
     logo: "assets/meetuprnantes.jpeg"
@@ -159,9 +160,224 @@ output:
 
 [`r fontawesome::fa('exclamation-triangle', fill= "red")` **Attention à l'indentation**]{}
 
+## Multipliez les format de sortie
+
+Avec `output`, vous pouvez produire plusieurs formats à partir du même fichier source : 
+
+```yaml
+---
+title: Créez vos documents avec R Markdown
+author: Romain Lesur
+date: 21 janvier 2019
+output: 
+  html_document: default
+  pdf_document: default
+---
+```
+
+Exécuter dans la console :
+
+```r
+rmarkdown::render("monfichier.Rmd", output_format = "all")
+```
+
+## Type de documents
+
+Vous pouvez produire :
+
+- des documents HTML
+- des documents paginés (articles, livres, thèses) : pdf avec $\LaTeX$, docx, odt...
+- des présentations : HTML et pptx
+- des tableaux de bord
+- des cours et sujets d'examens
+- des sites internet statiques
+
+## Modèles prêts à l'emploi
+
+De nombreux packages fournissent des modèles prêts à l'emploi : `rmarkdown`, `flexdashboard`, `hrbrthemes`, `komadown`, `komaletter`, `learnr`, `linl`, `memor`, `pinp`, `prettydoc`, `radix`, `revealjs`, `rmdformats`, `rmdshower`, `rticles`, `tufte`, [`unilur`](https://koncina.github.io/unilur/), `vitae`, `xaringan`...
+
+Pour les livres et thèses : `bookdown`
+
+Pour les sites web : `blogdown`
+
+## Des packages pour aider sur des taches spécifiques
+
+Tout un écosystème de packages pour aider : 
+
+- l'incroyable `officer` de David Gohel pour MS Office
+- `tinytex` pour installer facilement $\LaTeX$
+- pour les tableaux : `flextable` (David Gohel), `kableExtra`, `gt`...
+
+## Des documents paramétrés
+
+A partir du même fichier R Markdown, produire des rapports sur différentes zones géographiques, différentes périodes...
+
+```yaml
+---
+title: My Document
+output: html_document
+params:
+  annee: 2018
+  region: Europe
+---
+```
+
+Disponible depuis le bouton `Knit` de RStudio ou
+
+```r
+rmarkdown::render("monfichier.Rmd", params = list(annee = 2018, region = Europe))
+```
+
+## `knitr` chunks {data-background="assets/2rg8dc.jpg" data-background-position="50% 75%" data-background-size="35%"}
+
+## Deux façons d'insérer du code dans son document
+
+1. Code chunk  
+
+    ````r
+    `r ''````{r, eval=TRUE, echo=FALSE}
+    head(mtcars)
+    ```
+    ````
+    
+    De nombreuses options ! [yihui.name/knitr/options](https://yihui.name/knitr/options/)
+    
+1. Inline code 
+
+    ````markdown
+    La moyenne est de `r '\x60r mean(mtcars$cyl)\x60'`.
+    ````
+
+## Différents languages autorisés
+
+```{r}
+names(knitr::knit_engines$get())
+```
+
+## Exemple : `python` avec le package `reticulate` {.smaller}
+
+```{r, include=FALSE}
+library(reticulate)
+use_python("usr/local/bin/python")
+use_virtualenv("r-reticulate")
+py_install(c("pandas", "numpy"))
+```
+
+1. Initialisation de la configuration
+
+    ````r
+    `r ''````{r, include=FALSE}
+    library(reticulate)
+    use_python("usr/local/bin/python")
+    use_virtualenv("r-reticulate")
+    py_install(c("pandas", "numpy"))
+    ```
+    ````
+
+1. Script python
+
+    ````py
+    `r ''````{python}
+    a = 1
+    print(a)
+    ```
+    ````
+
+    ```{python, echo=FALSE}
+    a = 1
+    print(a)
+    ```
+
+## Communication entre R et python {.smaller}
+
+```{python, echo=FALSE}
+import pandas as pd
+import numpy as np
+
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+```
+
+````py
+`r ''````{python}
+import pandas as pd
+import numpy as np
+
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+```
+````
+
+````r
+`r ''````{r}
+head(py$df, n = 2L)
+```
+````
+```{r, echo=FALSE}
+head(py$df, n = 2L)
+```
+
+## Exemple : `node.js` avec un script externe {.smaller}
+
+Vous voulez écrire un cours sur `node.js`.  
+Vos scripts sont dans des fichiers `.js`.
+
+Vous pouvez écrire :
+
+````markdown
+`r ''````{node, code=readLines('node/example.js')}
+```
+````
+
+```{node, code=readLines('node/example.js')}
+```
+
+Voir le repo source : <https://github.com/RLesur/meetup-r-nantes-rmd>
+
+## Exemple : `SQL` avec scripts externes
+
+```{r, echo=FALSE}
+conn <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
+DBI::dbWriteTable(conn, "mtcars", mtcars)
+```
+
+**Etape 1 : connexion à la base de données**  
+````r
+`r ''````{r, include=FALSE}
+conn <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
+```
+````
+
+````markdown
+`r ''````{sql, connection=conn, code=readLines('sql/list_tables.sql')}
+```
+````
+
+```{sql, connection=conn, code=readLines('sql/list_tables.sql')}
+```
+
+---
+
+````markdown
+`r ''````{sql, connection=conn, code=readLines('sql/data.sql')}
+```
+````
+
+```{sql, connection=conn, code=readLines('sql/data.sql')}
+```
+
+**Se déconnecter :**  
+````r
+`r ''````{r, echo=FALSE}
+DBI::dbDisconnect(con)
+```
+````
+
+```{r, echo=FALSE}
+DBI::dbDisconnect(conn)
+```
+
 ## Markdown : simple mais puissant {data-background="assets/2rfogh.jpg" data-background-position="50% 75%" data-background-size="45%"}
-
-
 
 ## R Markdown Cheat Sheet
 
@@ -176,71 +392,6 @@ output:
 [[R Markdown Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) par [RStudio](https://www.rstudio.com/), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)]{.license}
 
 `r tags$embed(id="cheatsheet", src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf", width="100%", height="500px")`
-
-## Différents languages autorisés
-
-```{r}
-names(knitr::knit_engines$get())
-```
-
-## Exemple : `python`
-
-```{r include=FALSE}
-library(reticulate)
-use_python("usr/local/bin/python")
-use_virtualenv("r-reticulate")
-py_install(c("pandas", "numpy"))
-```
-```{python}
-a = 1 + 2
-print(a)
-```
-
-
-
-```{python}
-import pandas as pd
-import numpy as np
-
-dates = pd.date_range('20130101', periods=6)
-df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
-print(df)
-```
-
-
-## Exemple : `node.js`
-
-```{node}
-const hi = (name) => {
-  console.log("Hello " + name + "!");
-}
-
-hi("Bob");
-```
-
-## Exemple : `SQL`
-
-```{r}
-con <- DBI::dbConnect(RSQLite::SQLite(), path = ":memory:")
-DBI::dbWriteTable(con, "mtcars", mtcars)
-```
-
-```{sql connection=con}
-SELECT name FROM sqlite_master WHERE type='table';
-```
-
----
-
-```{sql connection=con}
-SELECT mpg, cyl, disp FROM mtcars
-       LIMIT 3;
-```
-
-**Se déconnecter :**
-
-```{r}
-DBI::dbDisconnect(con)
-```
 
 
 ## Hacker R Markdown
