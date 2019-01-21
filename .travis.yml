@@ -20,6 +20,8 @@ script:
   - git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git output
   - cp ./*.Rmd ./output
   - cp -r ./assets ./output
+  - cp -r ./node ./output
+  - cp -r ./sql ./output
   - cd output
   - Rscript -e "rmarkdown::render('simple.Rmd')"
   - Rscript -e "rmarkdown::render('index.Rmd')"
