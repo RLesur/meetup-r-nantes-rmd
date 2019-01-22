@@ -20,8 +20,6 @@ Que vous soyez étudiant, professionnel de la data, enseignant, chercheur... R M
 
 Et le plus fort, c'est que R Markdown est compatible avec de très nombreux langages (python, node.js, ruby, coffeescript, SAS, julia, perl, C, go, SQL...) et totalement customisable.
 
-En exclusivité pour le meetup R Nantes, vous pourrez également découvrir la toute dernière innovation de R Markdown...
-
 ## Crédits 
 
 [Sharon McCutcheon on Unsplash](https://unsplash.com/@sharonmccutcheon?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge)
