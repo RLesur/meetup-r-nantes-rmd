@@ -324,7 +324,7 @@ head(mtcars)
 ## [31] &quot;stan&quot;      &quot;block&quot;     &quot;block2&quot;    &quot;js&quot;        &quot;css&quot;      
 ## [36] &quot;sql&quot;       &quot;go&quot;        &quot;python&quot;    &quot;julia&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code> avec le package <code>reticulate</code></h2></hgroup><article  class="smaller" id="exemple-python-avec-le-package-reticulate">
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>python</code> avec le package <code>reticulate</code></h2></hgroup><article  id="exemple-python-avec-le-package-reticulate" class="smaller">
 
 <ol>
 <li><p>Initialisation de la configuration</p>
@@ -345,7 +345,7 @@ print(a)
 <pre >## 1</pre></li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>Communication entre R et python</h2></hgroup><article  class="smaller" id="communication-entre-r-et-python">
+</article></slide><slide class=""><hgroup><h2>Communication entre R et python</h2></hgroup><article  id="communication-entre-r-et-python" class="smaller">
 
 <pre class = 'prettyprint lang-py'>```{python}
 import pandas as pd
@@ -370,21 +370,21 @@ head(py$df, n = 2L)
 </tr>
 <tr class="odd">
 <td align="left">2013-01-01</td>
-<td align="right">-0.4552212</td>
-<td align="right">0.2195900</td>
-<td align="right">0.4331404</td>
-<td align="right">-1.0339391</td>
+<td align="right">0.2952525</td>
+<td align="right">-1.126555</td>
+<td align="right">0.9311392</td>
+<td align="right">1.3895048</td>
 </tr>
 <tr class="even">
 <td align="left">2013-01-02</td>
-<td align="right">2.5373213</td>
-<td align="right">-0.2292694</td>
-<td align="right">1.0202915</td>
-<td align="right">-0.6444326</td>
+<td align="right">0.4104249</td>
+<td align="right">-1.201973</td>
+<td align="right">-0.1641902</td>
+<td align="right">-0.7289867</td>
 </tr>
 </table></div>
 
-</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code> avec un script externe</h2></hgroup><article  class="smaller" id="exemple-node.js-avec-un-script-externe">
+</article></slide><slide class=""><hgroup><h2>Exemple : <code>node.js</code> avec un script externe</h2></hgroup><article  id="exemple-node.js-avec-un-script-externe" class="smaller">
 
 <p>Vous voulez écrire un cours sur <code>node.js</code>.<br/>Vos scripts sont dans des fichiers <code>.js</code>.</p>
 
@@ -535,7 +535,7 @@ DBI::dbDisconnect(conn)
 <li><p><code>pre_knit</code>, <code>post_knit</code>, <code>pre_processor</code>, <code>intermediates_generator</code>, <code>post_processor</code> et <code>on_exit</code> : des fonctions appelées à chaque étape de la génération du document</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Hacker <code>knitr</code></h2></hgroup><article  class="smaller" id="hacker-knitr">
+</article></slide><slide class=""><hgroup><h2>Hacker <code>knitr</code></h2></hgroup><article  id="hacker-knitr" class="smaller">
 
 <p>Des dizaines d’options…<br/><strong>Exemple : <em>hooks</em></strong></p>
 
